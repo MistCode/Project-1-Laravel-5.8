@@ -42,10 +42,14 @@ class PaginaController extends Controller
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
         }
-        $registro = new Registro();
-        $registro->name = $request->input('name');
-        $registro->avatar = $name;
-        $registro->save();
+
+        $ingresar = new Registro();
+        $ingresar->name = $request->input('name');
+        $ingresar->slug = str_slug($request->slug);
+        $ingresar->avatar = $name;
+        
+        $ingresar->save();
+
         return "saved";
     }
 
@@ -55,9 +59,10 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Registro $registro)
+    public function show($slug)
     {
-        return view('grupos.show', compact('registro'));
+        $mostrar = Registro::where('slug', $slug)->first();
+        return view('grupos.show', compact('mostrar'));
     }
 
     /**
@@ -66,9 +71,9 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Registro $registro)
     {
-        //
+        return $registro;
     }
 
     /**

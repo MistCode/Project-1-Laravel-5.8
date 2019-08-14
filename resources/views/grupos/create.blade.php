@@ -1,19 +1,26 @@
-@extends('layouts.app')
+@extends('layouts.aplic')
 
 @section('title','Crear Usuario')
 
 @section('content')
+
 <form class="form-group" method="POST" action="{{url('/grupos/create')}}" enctype="multipart/form-data"> 
-@csrf	
+@csrf
+
 	<div class="form-group">
-	<label for="">Nombre:</label><br>
+		<label for="name">Nombre:</label>
 		<input type="text" name="name" class="form-control">
 	</div>
 
 	<div class="form-group">
+		<label for="slug">Alias:</label>
+		<input type="text" name="slug" class="form-control">
+	</div>
+
+	<div class="form-group">
+		<label for="avatar">Avatar:</label>
 		<input type="file" name="avatar">
 	</div>
 		<button type="submit" class="btn btn-primary">Guardar</button>
-		<a href="{{ url('/grupos') }}" class="btn btn-danger">Volver</a>
     </form>
 @endsection
