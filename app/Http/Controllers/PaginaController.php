@@ -16,6 +16,7 @@ class PaginaController extends Controller
     {
         $usuarios = Registro::all();
 
+
         return view('grupos.index', compact('usuarios'));
     }
 
@@ -62,6 +63,8 @@ class PaginaController extends Controller
     public function show($slug)
     {
         $mostrar = Registro::where('slug', $slug)->first();
+
+        //dd($mostrar);
         return view('grupos.show', compact('mostrar'));
     }
 
