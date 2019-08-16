@@ -13,7 +13,7 @@ Route::get('/grupos/create','PaginaController@create')->name('Añadir');
 
 Route::post('/grupos/create','PaginaController@store');
 
-Route::get('/grupos/{slug}', 'PaginaController@show')->name('grupos.show');
+Route::get('/grupos/{$slug}', 'PaginaController@show')->name('grupos.show');
 
 Route::resource('grupos','PaginaController');
 Auth::routes();

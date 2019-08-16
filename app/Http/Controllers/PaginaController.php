@@ -38,7 +38,8 @@ class PaginaController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->hasfile('avatar')){
+        if($request->hasfile('avatar'))
+        {
             $file = $request->file('avatar');
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/images/', $name);
@@ -60,9 +61,9 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show(Registro $mostrar, $slug)
     {
-        $mostrar = Registro::where('slug', $slug)->first();
+        $mostrar = Registro::where('slug','=',$slug)->firstOrFail();
 
         //dd($mostrar);
         return view('grupos.show', compact('mostrar'));
@@ -74,9 +75,10 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Registro $registro)
+    public function edit(Registro $mostrar, $slug)
     {
-        return $registro;
+        $mostrar = Registro::where('slug','=',$slug)->firstOrFail();
+        return view('grupos.edit', compact('mostrar'));
     }
 
     /**
@@ -86,9 +88,20 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Registro $mostrar, $slug)
     {
-        //
+        $mostrar = Registro::where('slug','=',$slug)->firstOrFail();
+        $mostrar->fill($request->except('avatar'));
+        if($request->hasfile('avatar'))
+        {
+            $file = $request->file('avatar');
+            $name = time().$file->getClientOriginalName();
+            $mostrar->avatar = $name;
+            $file->move(public_path().'/images/', $name);
+        }
+        $mostrar->save();
+
+        return 'update';
     }
 
     /**

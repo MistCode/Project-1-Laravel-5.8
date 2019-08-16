@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form class="form-group" method="POST" action="{{url('/grupos/create')}}" enctype="multipart/form-data"> 
+<form class="form-group" method="POST" action="{{ url('/grupos/create') }}" enctype="multipart/form-data"> 
 @csrf
 
 	<div class="form-group">

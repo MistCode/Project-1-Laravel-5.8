@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{ asset('css/camera.css') }}">
     <link rel="stylesheet" href="{{ asset('css/owl-carousel.css') }}">
     <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/jquery-migrate-1.2.1.js') }}"></script><
+    <script src="{{ asset('js/jquery-migrate-1.2.1.js') }}"></script>
 
 
 </head>
