@@ -4,23 +4,21 @@
 
 @section('content')
 
-<form class="form-group" method="POST" action="{{ url('/grupos/create') }}" enctype="multipart/form-data"> 
-@csrf
+	@if ($errors->any())
+		<div class="alert alert-danger">
+			<ul>
+				@foreach($errors->all() as $error)
+					<li>{{ $error }}</li>
+				@endforeach				
+			</ul>
+		</div>
+	@endif
+	{!! Form::open(['route' => 'grupos.store', 'method' => 'POST', 'files' => true]) !!}
+		
+		@include('grupos.form')
 
-	<div class="form-group">
-		<label for="name">Nombre:</label>
-		<input type="text" name="name" class="form-control">
-	</div>
+		{!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
 
-	<div class="form-group">
-		<label for="slug">Alias:</label>
-		<input type="text" name="slug" class="form-control">
-	</div>
+	{!! Form::close() !!}
 
-	<div class="form-group">
-		<label for="avatar">Avatar:</label>
-		<input type="file" name="avatar">
-	</div>
-		<button type="submit" class="btn btn-primary">Guardar</button>
-    </form>
 @endsection

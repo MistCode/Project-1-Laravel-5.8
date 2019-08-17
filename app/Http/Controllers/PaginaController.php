@@ -4,6 +4,8 @@ namespace Lavel\Http\Controllers;
 
 use Lavel\Registro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Lavel\Http\Requests\StoreGrupoRequest;
 
 class PaginaController extends Controller
 {
@@ -36,19 +38,20 @@ class PaginaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreGrupoRequest $request)
     {
-        if($request->hasfile('avatar'))
-        {
-            $file = $request->file('avatar');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/images/', $name);
-        }
-
         $ingresar = new Registro();
+
+            if($request->hasfile('avatar'))
+                {
+                    $file = $request->file('avatar');
+                    $name = time().$file->getClientOriginalName();
+                    $file->move(public_path().'/images/', $name);
+                }
+                
         $ingresar->name = $request->input('name');
-        $ingresar->slug = str_slug($request->slug);
         $ingresar->avatar = $name;
+        $ingresar->slug = $request->input('slug');
         
         $ingresar->save();
 
@@ -110,8 +113,12 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Registro $mostrar, $slug)
     {
-        //
+        $mostrar = Registro::where('slug','=',$slug)->firstOrFail();
+        $file_path = public_path().'/images/'.$mostrar->avatar;
+        \File::delete($file_path);
+        $mostrar->delete();
+        return 'deleted';
     }
 }

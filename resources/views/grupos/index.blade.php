@@ -7,7 +7,7 @@
 
 		@foreach($usuarios as $ingresar)
 			<div class="col-sn">
-				<div class="card text-center border border-info" style="width: 18rem;margin-right: 40px; margin-top: 30px;">
+				<div class="card text-center border border-info" style="width: 18rem; margin-right: 40px; margin-top: 30px;">
 					
 					<img style="height: 150px; width: 100px; background-color: #EFEFEF; margin-top: 5px;" src="images/{{ $ingresar->avatar }}" class="card-img-top rounded-circle mx-auto d-block border border-primary" alt="">
 
