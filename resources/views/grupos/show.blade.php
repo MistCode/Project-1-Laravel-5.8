@@ -1,10 +1,12 @@
-@extends('layouts.aplic')
+@extends('layouts.app')
 
 @section('title','Usuario - Info')
 
 @section('content')
 
-		<img style="height: 200px; width: 150px; margin-top: 5px;" src="{{asset('images/'.$mostrar->avatar) }}" class="card-img-top rounded-circle mx-auto d-block border border-primary" alt="">
+@include('common.success')
+
+		<img style="height: 230px; width: 150px; margin-top: 5px;" src="{{asset('images/'.$mostrar->avatar) }}" class="card-img-top rounded-circle mx-auto d-block border border-primary" alt="">
 			<div class="text-center">
 					<h5 class="card-title"> {{ $mostrar->name }} </h5>
 

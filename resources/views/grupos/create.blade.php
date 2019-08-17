@@ -1,18 +1,11 @@
-@extends('layouts.aplic')
+@extends('layouts.app')
 
 @section('title','Crear Usuario')
 
 @section('content')
 
-	@if ($errors->any())
-		<div class="alert alert-danger">
-			<ul>
-				@foreach($errors->all() as $error)
-					<li>{{ $error }}</li>
-				@endforeach				
-			</ul>
-		</div>
-	@endif
+@include('common.errors')
+
 	{!! Form::open(['route' => 'grupos.store', 'method' => 'POST', 'files' => true]) !!}
 		
 		@include('grupos.form')

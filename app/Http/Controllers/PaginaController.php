@@ -14,10 +14,12 @@ class PaginaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $usuarios = Registro::all();
+        
+        $request->user()->authorizeRoles(['admin','user']);
 
+        $usuarios = Registro::all();
 
         return view('grupos.index', compact('usuarios'));
     }
@@ -55,7 +57,7 @@ class PaginaController extends Controller
         
         $ingresar->save();
 
-        return "saved";
+        return redirect()->route('grupos.index');
     }
 
     /**
@@ -104,7 +106,7 @@ class PaginaController extends Controller
         }
         $mostrar->save();
 
-        return 'update';
+        return redirect()->route('grupos.show', [$mostrar])->with('status','Datos Actualizados Correctamente');
     }
 
     /**
@@ -119,6 +121,7 @@ class PaginaController extends Controller
         $file_path = public_path().'/images/'.$mostrar->avatar;
         \File::delete($file_path);
         $mostrar->delete();
-        return 'deleted';
+
+        return redirect()->route('grupos.index');
     }
 }

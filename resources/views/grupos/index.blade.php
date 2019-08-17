@@ -1,10 +1,10 @@
-@extends('layouts.aplic')
+@extends('layouts.app')
 
 @section('title','Usuarios')
 
 @section('content')
-	<div class="row">
 
+	<div class="row">
 		@foreach($usuarios as $ingresar)
 			<div class="col-sn">
 				<div class="card text-center border border-info" style="width: 18rem; margin-right: 40px; margin-top: 30px;">
