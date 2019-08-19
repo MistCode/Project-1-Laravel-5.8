@@ -14,4 +14,6 @@
 
 	{!! Form::close() !!}
 
+	<a href="{{ url('/grupos') }}" class="btn btn-success">Regresar</a>
+
 @endsection

@@ -41,6 +41,24 @@
                 </li>
                 <li><a href="index-4.html">Contacts</a>
                 </li>
+                <li>
+                @if (Route::has('login'))
+                <li>
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+                </li>
+                <li>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                  </li>
+                  @endif
+
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
