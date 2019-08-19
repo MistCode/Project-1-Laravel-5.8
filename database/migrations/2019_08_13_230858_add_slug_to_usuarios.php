@@ -14,7 +14,7 @@ class AddSlugToUsuarios extends Migration
     public function up()
     {
         Schema::table('registros', function (Blueprint $table) {
-            $table->string('slug');
+            $table->string('slug')->unique();
         });
     }
 

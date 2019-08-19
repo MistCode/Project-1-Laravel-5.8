@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Registro extends Model
 {
-	protected $fillable = ['name','slug','avatar'];
+	protected $fillable = ['name','slug','avatar','descript'];
     /**
 	 * Get the route key for the model.
 	 *

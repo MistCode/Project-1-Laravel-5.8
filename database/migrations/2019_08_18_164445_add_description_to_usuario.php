@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegistrosTable extends Migration
+class AddDescriptionToUsuario extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateRegistrosTable extends Migration
      */
     public function up()
     {
-        Schema::create('registros', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('name');
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::table('registros', function (Blueprint $table) {
+            $table->string('descript');
         });
     }
 
@@ -28,6 +25,8 @@ class CreateRegistrosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registros');
+        Schema::table('registros', function (Blueprint $table) {
+            //
+        });
     }
 }

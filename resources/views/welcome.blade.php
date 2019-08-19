@@ -85,8 +85,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">Mis Grupos</a>
-                    <a href="https://laracasts.com">Otra Cosa</a>
+                    <a href="{{ url('/grupos') }}">Mis Grupos</a>
                 </div>
             </div>
         </div>

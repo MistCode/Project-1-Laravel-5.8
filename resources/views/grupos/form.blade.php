@@ -12,3 +12,8 @@
 			{!! Form::label('avatar', 'Avatar') !!}
 			{!! Form::file('avatar') !!}
 		</div>
+
+		<div class="form-group">
+			{!! Form::label('descript', 'Escribe algo de ti:') !!}
+			{!! Form::text('descript', null, ['class' => 'form-control']) !!}
+		</div>

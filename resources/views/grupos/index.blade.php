@@ -14,7 +14,7 @@
 					<div class="card-body">
 
 					    <h5 class="card-title"> {{ $ingresar->name }} </h5>
-					    <p class="card-text">Jugador de Summoner Wars que lleva mucho tiempo jugando, Tiene bastante Monstruos 5 Estrella...</p>
+					    <p class="card-text">{{ $ingresar->descript }}</p>
 					    <a href="{{ url('/grupos', $ingresar["slug"]) }}" class="btn btn-primary">Ver Más Info+</a>
 
 					</div>

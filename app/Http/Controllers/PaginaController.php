@@ -54,7 +54,7 @@ class PaginaController extends Controller
         $ingresar->name = $request->input('name');
         $ingresar->avatar = $name;
         $ingresar->slug = $request->input('slug');
-        
+        $ingresar->descript = $request->input('descript');
         $ingresar->save();
 
         return redirect()->route('grupos.index');
@@ -69,7 +69,6 @@ class PaginaController extends Controller
     public function show(Registro $mostrar, $slug)
     {
         $mostrar = Registro::where('slug','=',$slug)->firstOrFail();
-
         //dd($mostrar);
         return view('grupos.show', compact('mostrar'));
     }
@@ -83,6 +82,7 @@ class PaginaController extends Controller
     public function edit(Registro $mostrar, $slug)
     {
         $mostrar = Registro::where('slug','=',$slug)->firstOrFail();
+
         return view('grupos.edit', compact('mostrar'));
     }
 

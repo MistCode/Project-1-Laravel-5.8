@@ -10,13 +10,15 @@
 			<div class="text-center">
 					<h5 class="card-title"> {{ $mostrar->name }} </h5>
 
-					<p class="card-text">Jugador de Summoner Wars que lleva mucho tiempo jugando, Tiene bastante Monstruos 5 Estrellas y cuando el Primer 5 Estrellas fue Seara, la Oraculo de Viento ¨Sin Despertar¨</p>
+					<p class="card-text">{{ $mostrar->descript }}</p>
+				<div class="row" style="justify-content: center;">
+					<a href="{{ url('/grupos/'.$mostrar->slug.'/edit') }}" class="btn btn-primary">Editar</a>
 
-				<a href="{{ url('/grupos/'.$mostrar->slug.'/edit') }}" class="btn btn-primary">Editar</a>
+					{!! Form::open([ 'route' => ['grupos.destroy', $mostrar->slug], 'method' => 'DELETE' ]) !!}
+						{!! Form::submit('Eliminar', [ 'class' => 'btn btn-danger']) !!}
+					{!! Form::close() !!}
 
-				{!! Form::open([ 'route' => ['grupos.destroy', $mostrar->slug], 'method' => 'DELETE' ]) !!}
-					{!! Form::submit('Eliminar', [ 'class' => 'btn btn-danger']) !!}
-				{!! Form::close() !!}
-				
+					<a href="{{ url('/grupos') }}" class="btn btn-success">Regresar</a>
+				</div>
 			</div>
 @endsection

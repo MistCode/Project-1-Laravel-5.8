@@ -24,9 +24,10 @@ class StoreGrupoRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max: 10',
+            'name' => 'required|max: 15',
             'slug' => 'required',
-            'avatar' => 'required|image'
+            'avatar' => 'required|image',
+            'descript'=> 'required|max: 100'
         ];
     }
 }
