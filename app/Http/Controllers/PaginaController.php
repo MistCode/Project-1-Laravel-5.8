@@ -115,9 +115,9 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Registro $mostrar, $slug)
+    public function destroy(Registro $mostrar, $id)
     {
-        $mostrar = Registro::where('slug','=',$slug)->firstOrFail();
+        $mostrar = Registro::findorFail($id);
         $file_path = public_path().'/images/'.$mostrar->avatar;
         \File::delete($file_path);
         $mostrar->delete();

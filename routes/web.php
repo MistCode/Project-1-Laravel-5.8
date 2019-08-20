@@ -3,8 +3,8 @@
 Route::get('/', function() {
     return view('welcome');
 })->name('Home');
-
 */
+
 Route::get('/', 'Control@index');
 
 //Rutas de Create, Index, Show
