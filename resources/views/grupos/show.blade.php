@@ -14,7 +14,7 @@
 				<div class="row" style="justify-content: center;">
 					<a href="{{ url('/grupos/'.$mostrar->slug.'/edit') }}" class="btn btn-primary">Editar</a>
 
-					{!! Form::open([ 'route' => ['grupos.destroy', $mostrar->slug], 'method' => 'DELETE' ]) !!}
+					{!! Form::open([ 'route' => ['grupos.destroy', $mostrar->id], 'method' => 'DELETE' ]) !!}
 						{!! Form::submit('Eliminar', [ 'class' => 'btn btn-danger']) !!}
 					{!! Form::close() !!}
 

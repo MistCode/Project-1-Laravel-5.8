@@ -117,10 +117,13 @@ class PaginaController extends Controller
      */
     public function destroy(Registro $mostrar, $id)
     {
-        $mostrar = Registro::findorFail($id);
+
+        $mostrar = Registro::findOrFail($id);
         $file_path = public_path().'/images/'.$mostrar->avatar;
         \File::delete($file_path);
         $mostrar->delete();
+
+
 
         return redirect()->route('grupos.index');
     }
