@@ -1,8 +1,10 @@
 <?php
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-class AddSlugToUsuarios extends Migration
+
+class AddAvatarToUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -11,10 +13,11 @@ class AddSlugToUsuarios extends Migration
      */
     public function up()
     {
-        Schema::table('registros', function (Blueprint $table) {
-            $table->string('slug')->unique();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('avatar')->default("default_avatar.png");
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -22,8 +25,8 @@ class AddSlugToUsuarios extends Migration
      */
     public function down()
     {
-        Schema::table('registros', function (Blueprint $table) {
-            $table->dropColumn('slug');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('avatar');
         });
     }
 }

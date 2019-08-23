@@ -20,3 +20,7 @@ Route::resource('grupos','PaginaController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/profile', 'UserController@profile')->name('user.profile');
+
+Route::patch('/profile', 'UserController@update_profile')->name('user.profile.update');

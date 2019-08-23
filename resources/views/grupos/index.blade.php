@@ -4,6 +4,8 @@
 
 @section('content')
 
+@include('common.success')
+
 	<div class="row">
 		@foreach($usuarios as $ingresar)
 			<div class="col-sn">

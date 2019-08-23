@@ -30,8 +30,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <!-- Left Side Of Navbar -->
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link active" href="{{ url('/') }}" >Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="{{ url('/grupos') }}">Mis Grupos</a>
+                    <a class="nav-item nav-link" href="{{ url('/grupos') }}">Mis Grupos<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="{{ url('/grupos/create') }}">Añadir</a>
                     <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
                 </div>
@@ -49,11 +48,13 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+         
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><img width="20px" height="20px" class="rounded-circle" src="{{ asset('images/ae/'.Auth::user()->avatar) }}">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('/profile') }}">Avatar</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
