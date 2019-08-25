@@ -9,6 +9,6 @@ class Control extends Controller
 {
 	public function index()
 	{
-		return view('web.index');
+		return view('index');
 	}
 }

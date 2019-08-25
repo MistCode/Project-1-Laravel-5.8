@@ -17,6 +17,12 @@ Route::get('/grupos/{$slug}', 'PaginaController@show')->name('grupos.show');
 
 Route::resource('grupos','PaginaController');
 
+//Route::resource('personas','PersonaController');
+
+Route::get('/grupos/{grupo}/personas','PersonaController@index');
+
+Route::post('/grupos/{grupo}/personas','PersonaController@store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -4,6 +4,12 @@
 
 @section('content')
 
+	<div class="container">
+		<div class=" col-sm text-center">
+			<h2 style="margin-top: 10px;"><span class="border-bottom">Editar Información de {{ $mostrar->slug }}</span></h2>
+		</div>
+	</div>
+
 @include('common.errors')
 
 {!! Form::model($mostrar, ['route' => ['grupos.update', $mostrar], 'method' => 'PUT', 'files' => true]) !!}
@@ -12,7 +18,7 @@
 		<div class="data">
 			@include('grupos.form')
 			{!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
-			<a href="{{ url('/grupos') }}" class="btn btn-success">Regresar a Inicio</a>
+			<a href="{{ url('/grupos/'.$mostrar->slug) }}" class="btn btn-success">Regresar</a>
 		</div>
 	</div>
 {!! Form::close() !!}

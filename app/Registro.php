@@ -26,4 +26,10 @@ class Registro extends Model
 	{
 	    return 'slug';
 	}
+
+	public function personas(){
+		return $this->hasMany('Lavel\Persona');
+	}
+
+	
 }

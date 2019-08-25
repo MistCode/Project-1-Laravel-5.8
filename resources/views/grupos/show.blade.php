@@ -4,6 +4,12 @@
 
 @section('content')
 
+	<div class="container">
+		<div class=" col-sm text-center">
+			<h2 style="margin-top: 10px;"><span class="border-bottom">Ver Información de {{ $mostrar->slug }}</span></h2>
+		</div>
+	</div>
+
 @include('common.success')
 
 <img style="height: 230px; width: 150px; margin-top: 5px;" src="{{asset('images/'.$mostrar->avatar) }}" class="card-img-top rounded-circle mx-auto d-block border border-primary" alt="">
@@ -18,4 +24,12 @@
 			{!! Form::close() !!}
 		</div>
 	</div>
+	<modal-button></modal-button>
+		<div class="container">
+		<div class=" col-sm text-center">
+			<h2><span class="border-bottom">Personas del Grupo {{ $mostrar->slug }}</span></h2>
+		</div>
+	</div>
+	<lista-de-personas></lista-de-personas>
+	<create-form-person></create-form-person>
 @endsection

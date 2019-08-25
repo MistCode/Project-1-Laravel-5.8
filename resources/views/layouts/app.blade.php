@@ -31,7 +31,7 @@
                                     <!-- Left Side Of Navbar -->
                 <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{{ url('/grupos') }}">Mis Grupos<span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="{{ url('/grupos/create') }}">Añadir</a>
+                    <a class="nav-item nav-link" href="{{ url('/grupos/create') }}">Añadir<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
                 </div>
                     <!-- Right Side Of Navbar -->
