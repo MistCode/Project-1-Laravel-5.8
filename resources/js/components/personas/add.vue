@@ -15,7 +15,7 @@
 			    <input type="text" class="form-control" placeholder="Ingresa el nombre de la Persona" v-model="name">
 		  	</div>
 		  	<div class="form-group">
-			    <label>Foto</label>
+			    <label>Foto/Perfil</label>
 			    <input type="text" class="form-control" placeholder="Ingresa la url de una imagen" v-model="picture">
 		  	</div>
 		  	<button type="submit" class="btn btn-primary">Guardar</button>

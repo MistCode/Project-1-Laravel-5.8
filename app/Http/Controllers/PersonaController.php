@@ -17,6 +17,7 @@ class PersonaController extends Controller
 
     public function store(Registro $grupo, Request $request){
         if($request->ajax()){
+
             $persona = new Persona();
             $persona->name = $request->input('name');
             $persona->picture = $request->input('picture');

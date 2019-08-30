@@ -9,7 +9,7 @@ Route::get('/', 'Control@index');
 
 //Rutas de Create, Index, Show
 
-Route::get('/grupos/create','PaginaController@create')->name('Añadir');
+Route::get('/grupos/create','PaginaController@create')->name('grupos.create');
 
 Route::post('/grupos/create','PaginaController@store');
 
@@ -22,6 +22,8 @@ Route::resource('grupos','PaginaController');
 Route::get('/grupos/{grupo}/personas','PersonaController@index');
 
 Route::post('/grupos/{grupo}/personas','PersonaController@store');
+
+//auth
 
 Auth::routes();
 

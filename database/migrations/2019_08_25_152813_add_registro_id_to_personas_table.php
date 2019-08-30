@@ -14,7 +14,8 @@ class AddRegistroIdToPersonasTable extends Migration
     public function up()
     {
         Schema::table('personas', function (Blueprint $table) {
-            $table->integer('registro_id')->unsigned();
+            $table->bigInteger('registro_id')->unsigned();
+            $table->foreign('registro_id')->references('id')->on('registros');
         });
     }
 

@@ -68,5 +68,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $role = new Lavel\Role(['role' => 1]);
+            $user->roles()->save($role);
+            return $user;
     }
 }

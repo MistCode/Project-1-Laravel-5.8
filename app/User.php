@@ -11,14 +11,16 @@ class User extends Authenticatable
     use Notifiable;
 
     public function roles(){
-        return $this->belongsToMany('Lavel\Role');
+        return $this
+        ->belongsToMany('Lavel\Role')
+        ->withTimestamps();
     }
 
     public function authorizeRoles($roles){
         if($this->hasAnyRole($roles)){
             return true;
         }
-        abort(401, 'This actions is unauthorized');
+        abort(401, 'Esta acción no está autorizada');
     }
 
     public function hasAnyRole($roles){

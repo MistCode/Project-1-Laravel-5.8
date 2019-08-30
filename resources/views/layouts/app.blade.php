@@ -21,17 +21,30 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="#">Lavel</a>
+                <a class="navbar-brand" href="{{ url('/') }}">Lavel</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                     <!-- Left Side Of Navbar -->
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="{{ url('/grupos') }}">Mis Grupos<span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="{{ url('/grupos/create') }}">Añadir<span class="sr-only">(current)</span></a>
+                    <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarGrupos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Grupos</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarGrupos">
+                          <a class="dropdown-item" href="{{ url('/grupos') }}">Mis Grupos</a>
+                          <a class="dropdown-item" href="{{ url('/grupos/create') }}">Añadir</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarComunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comunidades</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarComunity">
+                          <a class="dropdown-item" href="{{ url('/comunidad') }}">Mis Comunidades</a>
+                          <a class="dropdown-item" href="{{ url('/comunidad/create') }}">Añadir</a>
+                        </div>
+                    </div>
+                    <a class="nav-item nav-link" href="#">Buzon de Mensajes<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
                 </div>
                     <!-- Right Side Of Navbar -->

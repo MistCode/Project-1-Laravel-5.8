@@ -20,6 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+
 Vue.component('lista-de-personas', require('./components/personas/list.vue').default);
 Vue.component('modal-button', require('./components/personas/modal-button.vue').default);
 Vue.component('create-form-person', require('./components/personas/add.vue').default);
