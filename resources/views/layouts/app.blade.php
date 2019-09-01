@@ -40,11 +40,11 @@
                     <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarComunity" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Comunidades</a>
                         <div class="dropdown-menu" aria-labelledby="navbarComunity">
-                          <a class="dropdown-item" href="{{ url('/comunidad') }}">Mis Comunidades</a>
-                          <a class="dropdown-item" href="{{ url('/comunidad/create') }}">Añadir</a>
+                          <a class="dropdown-item" href="{{ url('/comunidades') }}">Mis Comunidades</a>
+                          <a class="dropdown-item" href="{{ url('/comunidades/create') }}">Añadir</a>
                         </div>
                     </div>
-                    <a class="nav-item nav-link" href="#">Buzon de Mensajes<span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#">Otra Idea<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
                 </div>
                     <!-- Right Side Of Navbar -->

@@ -20,7 +20,7 @@
                 </li>
                 <li><a href="{{ url('/grupos') }}">Grupos</a>
                 </li>
-                <li><a href="{{ url('/comunidad') }}">Comunidades</a>
+                <li><a href="{{ url('/comunidades') }}">Comunidades</a>
                 </li>
                 <li>
                 @if (Route::has('login'))

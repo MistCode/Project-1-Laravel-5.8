@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRegistroIdToPersonasTable extends Migration
+class CreateComunidadsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,12 @@ class AddRegistroIdToPersonasTable extends Migration
      */
     public function up()
     {
-        Schema::table('personas', function (Blueprint $table) {
-            $table->integer('registro_id')->unsigned();
+        Schema::create('comunidads', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('avatar');
+            $table->string('describir');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +29,6 @@ class AddRegistroIdToPersonasTable extends Migration
      */
     public function down()
     {
-        Schema::table('personas', function (Blueprint $table) {
-            $table->dropColumn('registro_id');
-        });
+        Schema::dropIfExists('comunidads');
     }
 }

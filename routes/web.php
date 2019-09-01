@@ -7,7 +7,7 @@ Route::get('/', function() {
 
 Route::get('/', 'Control@index');
 
-//Rutas de Create, Index, Show
+//Rutas de Grupo
 
 Route::get('/grupos/create','PaginaController@create')->name('grupos.create');
 
@@ -17,7 +17,20 @@ Route::get('/grupos/{$slug}', 'PaginaController@show')->name('grupos.show');
 
 Route::resource('grupos','PaginaController');
 
-//Route::resource('personas','PersonaController');
+//route Comunidad
+
+Route::resource('comunidades', 'ComunidadController');
+
+Route::get('/comunidades/create','ComunidadController@create')->name('comunidades.create');
+
+Route::post('/comunidades/create','ComunidadController@store');
+
+Route::get('/comunidades/{$slug}', 'ComunidadController@show')->name('comunidades.show');
+
+
+//route Persona
+
+Route::resource('personas','PersonaController');
 
 Route::get('/grupos/{grupo}/personas','PersonaController@index');
 

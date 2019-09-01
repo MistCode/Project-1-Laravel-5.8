@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddRegistroIdToPersonasTable extends Migration
+class AddSlugToComunidads extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddRegistroIdToPersonasTable extends Migration
      */
     public function up()
     {
-        Schema::table('personas', function (Blueprint $table) {
-            $table->integer('registro_id')->unsigned();
+        Schema::table('comunidads', function (Blueprint $table) {
+            $table->string('slug')->unique();
         });
     }
 
@@ -25,8 +25,8 @@ class AddRegistroIdToPersonasTable extends Migration
      */
     public function down()
     {
-        Schema::table('personas', function (Blueprint $table) {
-            $table->dropColumn('registro_id');
+        Schema::table('comunidads', function (Blueprint $table) {
+            $table->dropColumn('slug');
         });
     }
 }
