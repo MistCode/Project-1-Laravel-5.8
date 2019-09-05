@@ -19,8 +19,19 @@
                 <li class="active"><a href="./">Home</a>
                 </li>
                 <li><a href="{{ url('/grupos') }}">Grupos</a>
+                  <ul>
+                    <li><a href="{{ url('/grupos') }}"><img src="{{ asset('images/grupos-imagen.jpg') }}"></a></li>
+                  </ul>
                 </li>
                 <li><a href="{{ url('/comunidades') }}">Comunidades</a>
+                  <ul>
+                    <li><a href="{{ url('/comunidades') }}"><img src="{{ asset('images/comunidad-imagen.jpg') }}"></a></li>
+                  </ul>
+                </li>
+                <li><a href="index-1.html">Otra Idea</a>
+                  <ul>
+                    <li><a href="#"><img src="{{ asset('images/wallhaven-488y3o.png') }}"></a></li>
+                  </ul>
                 </li>
                 <li>
                 @if (Route::has('login'))

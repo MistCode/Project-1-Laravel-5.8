@@ -26,6 +26,9 @@ Vue.component('modal-button', require('./components/personas/modal-button.vue').
 Vue.component('create-form-person', require('./components/personas/add.vue').default);
 Vue.component('spinner', require('./components/widgets/Spinner.vue').default);
 
+Vue.component('tabla-mensaje', require('./components/tabla.vue').default);
+Vue.component('form-mensaje', require('./components/formulario.vue').default);
+Vue.component('todo', require('./components/all.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
