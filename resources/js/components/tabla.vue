@@ -8,9 +8,9 @@
 			<td v-else>{{ tabla.mensaje }}</td>
 			
 			<td>
-				<button v-if="editMode" class="btn btn-success" v-on:click="onClickUpdate()">Save</button>
-				<button v-else class="btn btn-warning" v-on:click="onClickEdit()">Edit</button>
-				<button class="btn btn-danger" v-on:click="onClickDelete()">Delete</button>
+				<button v-if="editMode" class="btn btn-success" @click="onClickUpdate()">Save</button>
+				<button v-else class="btn btn-warning" @click="onClickEdit()">Edit</button>
+				<button class="btn btn-danger" @click="onClickDelete()">Delete</button>
 			</td>	    	
 		</tr>
 	</tbody>
@@ -27,23 +27,23 @@
             console.log('Component mounted.')
         },
         methods: {
-        	onClickDelete(){
+        	onClickDelete: function (index){
         		axios.delete(`http://localhost/Lavel/public/notas/${this.tabla.id}`)
         		.then(() => {
 					this.$emit('delete');
         		});
         		
         	},
-        	onClickEdit(){
+        	onClickEdit: function(){
         		this.editMode = true;
         	},
-        	onClickUpdate(){
+        	onClickUpdate: function(){
         		const params ={
         			name: tabla.name,
         			mensaje: tabla.mensaje
         		};
 
-        		axios.put(`http://localhost/Lavel/public/notas/${this.tabla.id}`, params).then((response) => {
+        		axios.put(`http://localhost/Lavel/public/notas/${this.tabla.id}`, ).then((response) => {
 					this.editMode = false;
 					const tabla = response.data;
 	        		this.$emit('update', tabla);

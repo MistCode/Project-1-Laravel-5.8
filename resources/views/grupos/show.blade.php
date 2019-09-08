@@ -24,12 +24,12 @@
 			{!! Form::close() !!}
 		</div>
 	</div>
-	<modal-button></modal-button>
 		<div class="container">
 		<div class=" col-sm text-center">
 			<h2><span class="border-bottom">Personas del Grupo {{ $mostrar->slug }}</span></h2>
 		</div>
 	</div>
-	<lista-de-personas></lista-de-personas>
+	<modal-button></modal-button>
 	<create-form-person></create-form-person>
+	<lista-de-personas></lista-de-personas>
 @endsection

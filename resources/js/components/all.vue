@@ -31,17 +31,17 @@
         mounted() {
             axios.get('http://localhost/Lavel/public/notas')
             .then((response) => {
-            	this.tablas = response.data;
+            	this.tablas = response.data
             });
         },
         methods:{
-        	addTabla(tabla){
+        	addTabla: function(tabla){
         		this.tablas.push(tabla);
         	},
-        	updateTabla(index, tabla){
+        	updateTabla: function(index, tabla){
         		this.tablas[index] = tabla;
         	},
-        	deleteTabla(index){
+        	deleteTabla: function(index){
         		this.tablas.splice(index, 1);
         	}
         }

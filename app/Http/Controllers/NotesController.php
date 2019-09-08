@@ -4,22 +4,19 @@ namespace Lavel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Lavel\Mensaje;
-use Lavel\User;
 
 class NotesController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tabla = Mensaje::where('user_id', auth()->id())->get();
+        if($request->ajax()){
+            return response()->json([],200);
+        }
         return view('notas.index');
     }
 
@@ -31,6 +28,7 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
+
         $tabla = new Mensaje();
         $tabla->name = $request->name;
         $tabla->mensaje = $request->mensaje;
@@ -49,6 +47,10 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request,[
+            'name' => 'required',
+            'mensaje' => 'required'
+        ]);
         $tabla = Mensaje::find($id);
         $tabla->name = $request->name;
         $tabla->mensaje = $request->mensaje;
@@ -66,6 +68,6 @@ class NotesController extends Controller
     public function destroy($id)
     {
         $tabla = Mensaje::find($id);
-        $tabla->dele();
+        $tabla->delete();
     }
 }

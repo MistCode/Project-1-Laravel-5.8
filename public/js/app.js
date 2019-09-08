@@ -1934,6 +1934,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1958,6 +1959,11 @@ __webpack_require__.r(__webpack_exports__);
       _this2.personas = res.data;
       _this2.loading = false;
     });
+  },
+  methods: {
+    clickDelete: function clickDelete(index) {
+      this.personas.splice(index, 1);
+    }
   }
 });
 
@@ -2017,7 +2023,7 @@ __webpack_require__.r(__webpack_exports__);
     console.log('Component mounted.');
   },
   methods: {
-    onClickDelete: function onClickDelete() {
+    onClickDelete: function onClickDelete(index) {
       var _this = this;
 
       axios["delete"]("http://localhost/Lavel/public/notas/".concat(this.tabla.id)).then(function () {
@@ -2034,7 +2040,7 @@ __webpack_require__.r(__webpack_exports__);
         name: tabla.name,
         mensaje: tabla.mensaje
       };
-      axios.put("http://localhost/Lavel/public/notas/".concat(this.tabla.id), params).then(function (response) {
+      axios.put("http://localhost/Lavel/public/notas/".concat(this.tabla.id)).then(function (response) {
         _this2.editMode = false;
         var tabla = response.data;
 
@@ -38065,14 +38071,12 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header" }, [
-              _vm._v(
-                "Example Component con vue.js y mas por ahora solo dfgdfgcon vue.js"
-              )
+              _vm._v("Example Component con vue.js y mas por ahora sol vue.js")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                    I'm an example component.pero creo que falta algo por hacer aqui pero que importa, ahora para la comunidad XDDDDD***^*^*.\n                "
+                "\n                    I'm an example component.pero creo que falta algo por hacer aqui pero que importa, ahora para la comunidad XDDDDD.\n                "
               )
             ])
           ])
@@ -38464,7 +38468,7 @@ var render = function() {
         ]
       }),
       _vm._v(" "),
-      _vm._l(_vm.personas, function(persona) {
+      _vm._l(_vm.personas, function(persona, index) {
         return _c("div", { staticClass: "col-sm" }, [
           _c(
             "div",
@@ -38498,6 +38502,19 @@ var render = function() {
                   "a",
                   { staticClass: "btn btn-primary", attrs: { href: "#" } },
                   [_vm._v("Ver Más Info+")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        return _vm.clickDelete(index)
+                      }
+                    }
+                  },
+                  [_vm._v("Delete")]
                 )
               ])
             ]
@@ -50861,6 +50878,10 @@ Vue.component('tabla-mensaje', __webpack_require__(/*! ./components/tabla.vue */
 Vue.component('form-mensaje', __webpack_require__(/*! ./components/formulario.vue */ "./resources/js/components/formulario.vue")["default"]);
 Vue.component('todo', __webpack_require__(/*! ./components/all.vue */ "./resources/js/components/all.vue")["default"]);
 /**
+Vue.component('F', require('./components/sd/Form.vue').default);
+Vue.component('M', require('./components/sd/Mostrar.vue').default);
+Vue.component('T', require('./components/sd/todos.vue').default);
+
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
