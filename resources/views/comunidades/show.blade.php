@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('title','Mostrando Información')
 @section('content')
-
-
 	<div class="row">
 		<ul>
 			<div class="card text-center bg-white rounded border border-info" style="width: 18rem; margin-right: 20px; margin-top: 30px;">
@@ -22,20 +20,7 @@
 		</ul>
 
 		<ul>
-			<table class="table" style="margin-top: 30px;">
-				<thead class="thead-dark">
-				    <tr>
-				    	<th scope="col">Asunto</th>
-				    	<th scope="col">Contenido</th>
-				    </tr>
-				</thead>
-				<tbody>
-				    <tr>
-				    	<th scope="row">Falta Vue.js</th>
-				    	<td>Falta Vue.js</td>
-				    </tr>
-				</tbody>
-			</table>
+			<todo></todo>
 		</ul>	
 	</div>
 
