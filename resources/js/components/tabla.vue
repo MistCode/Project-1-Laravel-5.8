@@ -28,7 +28,7 @@
         },
         methods: {
         	onClickDelete: function (index){
-        		axios.delete(`http://localhost/Lavel/public/notas/${this.tabla.id}`)
+        		axios.delete('../notas/${this.tabla.id}')
         		.then(() => {
 					this.$emit('delete');
         		});
@@ -43,7 +43,7 @@
         			mensaje: tabla.mensaje
         		};
 
-        		axios.put(`http://localhost/Lavel/public/notas/${this.tabla.id}`, ).then((response) => {
+        		axios.put('../notas/${this.tabla.id}', ).then((response) => {
 					this.editMode = false;
 					const tabla = response.data;
 	        		this.$emit('update', tabla);

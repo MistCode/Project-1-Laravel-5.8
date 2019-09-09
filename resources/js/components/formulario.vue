@@ -42,7 +42,7 @@
         		this.name = '',
         		this.mensaje =  '';
 
-        		axios.post('http://localhost/Lavel/public/notas', params)
+        		axios.post('../notas', params)
         		.then((response) => {
         				const tabla = response.data;
         				this.$emit('new', tabla);

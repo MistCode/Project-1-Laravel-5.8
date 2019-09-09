@@ -1692,8 +1692,6 @@ module.exports = {
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************************/
-<<<<<<< HEAD
-=======
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1727,7 +1725,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/all.vue?vue&type=script&lang=js& ***!
   \**************************************************************************************************************************************************************/
->>>>>>> 7cb21f4f4df796ac760288985d8e4517da677b33
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1765,7 +1762,8 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('http://localhost/Lavel/public/notas').then(function (response) {
+    alert("dsds");
+    axios.get('../notas').then(function (response) {
       _this.tablas = response.data;
     });
   },
@@ -1784,8 +1782,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulario.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formulario.vue?vue&type=script&lang=js& ***!
@@ -1838,7 +1834,7 @@ __webpack_require__.r(__webpack_exports__);
         mensaje: this.mensaje
       };
       this.name = '', this.mensaje = '';
-      axios.post('http://localhost/Lavel/public/notas', params).then(function (response) {
+      axios.post('../notas', params).then(function (response) {
         var tabla = response.data;
 
         _this.$emit('new', tabla);
@@ -1849,7 +1845,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
->>>>>>> 7cb21f4f4df796ac760288985d8e4517da677b33
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/personas/add.vue?vue&type=script&lang=js&":
 /*!***********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/personas/add.vue?vue&type=script&lang=js& ***!
@@ -2032,7 +2027,7 @@ __webpack_require__.r(__webpack_exports__);
     onClickDelete: function onClickDelete(index) {
       var _this = this;
 
-      axios["delete"]("http://localhost/Lavel/public/notas/".concat(this.tabla.id)).then(function () {
+      axios["delete"]('../notas/${this.tabla.id}').then(function () {
         _this.$emit('delete');
       });
     },
@@ -2046,7 +2041,7 @@ __webpack_require__.r(__webpack_exports__);
         name: tabla.name,
         mensaje: tabla.mensaje
       };
-      axios.put("http://localhost/Lavel/public/notas/".concat(this.tabla.id)).then(function (response) {
+      axios.put('../notas/${this.tabla.id}').then(function (response) {
         _this2.editMode = false;
         var tabla = response.data;
 
@@ -38054,8 +38049,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
   \*******************************************************************************************************************************************************************************************************************/
-<<<<<<< HEAD
-=======
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -38103,7 +38096,6 @@ render._withStripped = true
 /*!******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/all.vue?vue&type=template&id=7c23c126& ***!
   \******************************************************************************************************************************************************************************************************/
->>>>>>> 7cb21f4f4df796ac760288985d8e4517da677b33
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -38176,8 +38168,6 @@ render._withStripped = true
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/formulario.vue?vue&type=template&id=4c848506&":
 /*!*************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/formulario.vue?vue&type=template&id=4c848506& ***!
@@ -38307,7 +38297,6 @@ render._withStripped = true
 
 /***/ }),
 
->>>>>>> 7cb21f4f4df796ac760288985d8e4517da677b33
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/personas/add.vue?vue&type=template&id=7a70c7b8&":
 /*!***************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/personas/add.vue?vue&type=template&id=7a70c7b8& ***!
@@ -50886,12 +50875,9 @@ Vue.component('lista-de-personas', __webpack_require__(/*! ./components/personas
 Vue.component('modal-button', __webpack_require__(/*! ./components/personas/modal-button.vue */ "./resources/js/components/personas/modal-button.vue")["default"]);
 Vue.component('create-form-person', __webpack_require__(/*! ./components/personas/add.vue */ "./resources/js/components/personas/add.vue")["default"]);
 Vue.component('spinner', __webpack_require__(/*! ./components/widgets/Spinner.vue */ "./resources/js/components/widgets/Spinner.vue")["default"]);
-<<<<<<< HEAD
-=======
 Vue.component('tabla-mensaje', __webpack_require__(/*! ./components/tabla.vue */ "./resources/js/components/tabla.vue")["default"]);
 Vue.component('form-mensaje', __webpack_require__(/*! ./components/formulario.vue */ "./resources/js/components/formulario.vue")["default"]);
 Vue.component('todo', __webpack_require__(/*! ./components/all.vue */ "./resources/js/components/all.vue")["default"]);
->>>>>>> 7cb21f4f4df796ac760288985d8e4517da677b33
 /**
 Vue.component('F', require('./components/sd/Form.vue').default);
 Vue.component('M', require('./components/sd/Mostrar.vue').default);
@@ -50970,8 +50956,6 @@ if (token) {
 /*!******************************************************!*\
   !*** ./resources/js/components/ExampleComponent.vue ***!
   \******************************************************/
-<<<<<<< HEAD
-=======
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -51041,7 +51025,6 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************!*\
   !*** ./resources/js/components/all.vue ***!
   \*****************************************/
->>>>>>> 7cb21f4f4df796ac760288985d8e4517da677b33
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -51107,8 +51090,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-<<<<<<< HEAD
-=======
 /***/ "./resources/js/components/formulario.vue":
 /*!************************************************!*\
   !*** ./resources/js/components/formulario.vue ***!
@@ -51178,7 +51159,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
->>>>>>> 7cb21f4f4df796ac760288985d8e4517da677b33
 /***/ "./resources/js/components/personas/add.vue":
 /*!**************************************************!*\
   !*** ./resources/js/components/personas/add.vue ***!

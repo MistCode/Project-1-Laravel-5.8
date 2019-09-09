@@ -29,7 +29,7 @@
 			}
 		},
         mounted() {
-            axios.get('http://localhost/Lavel/public/notas')
+            axios.get('../notas')
             .then((response) => {
             	this.tablas = response.data
             });
