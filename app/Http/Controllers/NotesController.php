@@ -14,8 +14,9 @@ class NotesController extends Controller
      */
     public function index(Request $request)
     {
+        $tablas = Mensaje::all();
         if($request->ajax()){
-            return response()->json([],200);
+            return response()->json($tablas, 200);
         }
         return view('notas.index');
     }
