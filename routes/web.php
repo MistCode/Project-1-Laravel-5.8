@@ -33,7 +33,7 @@ Route::resource('sd','ExtraController');
 
 //route mensaje
 
-Route::apiResource('notas', 'NotesController');
+Route::resource('notas', 'NotesController', ['except' => 'show', 'create', 'edit']);
 
 //route Persona
 

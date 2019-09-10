@@ -34,15 +34,11 @@
             console.log('Component mounted.')
         },
         methods:{
-        	newTabla(){
-        		const params = {
+        	newTabla: function(){
+        		axios.post('../notas', {
         			name: this.name,
         			mensaje: this.mensaje
-        		};
-        		this.name = '',
-        		this.mensaje =  '';
-
-        		axios.post('../notas', params)
+        		})
         		.then((response) => {
         				const tabla = response.data;
         				this.$emit('new', tabla);

@@ -28,6 +28,7 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->ajax()){
 
         $tabla = new Mensaje();
         $tabla->name = $request->name;
@@ -35,7 +36,8 @@ class NotesController extends Controller
         $tabla->user_id = auth()->id();
         $tabla->save();
 
-        return $tabla;
+        return response()->json($tabla, 200);
+        }
     }
 
     /**

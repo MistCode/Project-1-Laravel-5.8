@@ -8,8 +8,8 @@
 			<td v-else>{{ tabla.mensaje }}</td>
 			
 			<td>
-				<button v-if="editMode" class="btn btn-success" @click="onClickUpdate()">Save</button>
-				<button v-else class="btn btn-warning" @click="onClickEdit()">Edit</button>
+				<button v-if="editMode" class="btn btn-success" @click.prevent="onClickUpdate(index, tabla)">Save</button>
+				<button v-else class="btn btn-warning" @click.prevent="onClickEdit()">Edit</button>
 				<button class="btn btn-danger" @click.prevent="onClickDelete(tabla)">Deletes</button>
 			</td>	    	
 		</tr>
@@ -31,7 +31,8 @@
         		var url = "../notas/" + tabla.id;
         		axios.delete(url)
         		.then( (response => 
-        			{ this.$emit('delete');
+        			{
+        				this.$emit('delete');
         			})
         		);
         	},
@@ -39,13 +40,13 @@
         	onClickEdit: function(){
         		this.editMode = true;
         	},
-        	onClickUpdate: function(){
-        		const params ={
+        	onClickUpdate: function(index, tabla){
+        		var urlup = "../notas/" + tabla.id;
+        		axios.put(urlup, {
         			name: tabla.name,
         			mensaje: tabla.mensaje
-        		};
-
-        		axios.put('../notas/${this.tabla.id}', ).then((response) => {
+        		})
+        		.then((response) => {
 					this.editMode = false;
 					const tabla = response.data;
 	        		this.$emit('update', tabla);

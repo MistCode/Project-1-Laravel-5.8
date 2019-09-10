@@ -1828,12 +1828,10 @@ __webpack_require__.r(__webpack_exports__);
     newTabla: function newTabla() {
       var _this = this;
 
-      var params = {
+      axios.post('../notas', {
         name: this.name,
         mensaje: this.mensaje
-      };
-      this.name = '', this.mensaje = '';
-      axios.post('../notas', params).then(function (response) {
+      }).then(function (response) {
         var tabla = response.data;
 
         _this.$emit('new', tabla);
@@ -2034,14 +2032,14 @@ __webpack_require__.r(__webpack_exports__);
     onClickEdit: function onClickEdit() {
       this.editMode = true;
     },
-    onClickUpdate: function onClickUpdate() {
+    onClickUpdate: function onClickUpdate(index, tabla) {
       var _this2 = this;
 
-      var params = {
+      var urlup = "../notas/" + tabla.id;
+      axios.put(urlup, {
         name: tabla.name,
         mensaje: tabla.mensaje
-      };
-      axios.put('../notas/${this.tabla.id}').then(function (response) {
+      }).then(function (response) {
         _this2.editMode = false;
         var tabla = response.data;
 
@@ -38643,7 +38641,8 @@ var render = function() {
                 staticClass: "btn btn-success",
                 on: {
                   click: function($event) {
-                    return _vm.onClickUpdate()
+                    $event.preventDefault()
+                    return _vm.onClickUpdate(_vm.index, _vm.tabla)
                   }
                 }
               },
@@ -38655,6 +38654,7 @@ var render = function() {
                 staticClass: "btn btn-warning",
                 on: {
                   click: function($event) {
+                    $event.preventDefault()
                     return _vm.onClickEdit()
                   }
                 }
@@ -51389,15 +51389,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************!*\
   !*** ./resources/js/components/tabla.vue ***!
   \*******************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tabla_vue_vue_type_template_id_37b4c0e2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tabla.vue?vue&type=template&id=37b4c0e2& */ "./resources/js/components/tabla.vue?vue&type=template&id=37b4c0e2&");
 /* harmony import */ var _tabla_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabla.vue?vue&type=script&lang=js& */ "./resources/js/components/tabla.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _tabla_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _tabla_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -51427,7 +51426,7 @@ component.options.__file = "resources/js/components/tabla.vue"
 /*!********************************************************************!*\
   !*** ./resources/js/components/tabla.vue?vue&type=script&lang=js& ***!
   \********************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
