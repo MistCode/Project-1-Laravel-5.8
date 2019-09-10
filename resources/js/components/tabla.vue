@@ -10,7 +10,7 @@
 			<td>
 				<button v-if="editMode" class="btn btn-success" @click="onClickUpdate()">Save</button>
 				<button v-else class="btn btn-warning" @click="onClickEdit()">Edit</button>
-				<button class="btn btn-danger" @click="onClickDelete()">Delete</button>
+				<button class="btn btn-danger" @click.prevent="onClickDelete(tabla)">Deletes</button>
 			</td>	    	
 		</tr>
 	</tbody>
@@ -27,13 +27,15 @@
             console.log('Component mounted.')
         },
         methods: {
-        	onClickDelete: function (index){
-        		axios.delete('../notas/${this.tabla.id}')
-        		.then(() => {
-					this.$emit('delete');
-        		});
-        		
+        	onClickDelete: function (tabla){
+        		var url = "../notas/" + tabla.id;
+        		axios.delete(url)
+        		.then( (response => 
+        			{ this.$emit('delete');
+        			})
+        		);
         	},
+
         	onClickEdit: function(){
         		this.editMode = true;
         	},
