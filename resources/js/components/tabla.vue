@@ -10,14 +10,14 @@
 			<td>
 				<button v-if="editMode" class="btn btn-success" @click.prevent="onClickUpdate(index, tabla)">Save</button>
 				<button v-else class="btn btn-warning" @click.prevent="onClickEdit()">Edit</button>
-				<button class="btn btn-danger" @click.prevent="onClickDelete(tabla)">Deletes</button>
+				<button class="btn btn-danger" @click.prevent="onClickDelete(tabla)">Delete</button>
 			</td>	    	
 		</tr>
 	</tbody>
 </template>
 <script>
 	export default {
-		props:['tabla'],
+		props:['tabla','index'],
 		data(){
 			return{
 				editMode: false
@@ -41,8 +41,8 @@
         		this.editMode = true;
         	},
         	onClickUpdate: function(index, tabla){
-        		var urlup = "../notas/" + tabla.id;
-        		axios.put(urlup, {
+        		var url = "../notas/" + tabla.id;
+        		axios.put(url, {
         			name: tabla.name,
         			mensaje: tabla.mensaje
         		})
@@ -51,8 +51,6 @@
 					const tabla = response.data;
 	        		this.$emit('update', tabla);
         		});
-
-        		
         	}
         }
     }

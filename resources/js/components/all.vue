@@ -13,7 +13,7 @@
 				v-for="(tabla, index) in tablas" 
 				:key="tabla.id" 
 				:tabla="tabla"
-				@update="updateTable(index, ...arguments)" 
+				@update="updateTabla(index, ...arguments)" 
 				@delete="deleteTabla(index)"></tabla-mensaje>
 				
 			</table>

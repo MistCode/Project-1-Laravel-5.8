@@ -2,7 +2,7 @@
 	<div class="card text-center bg-white rounded border border-info" style="width: 40rem; margin-right: 40px; margin-top: 30px;">
 				<div class="card-body">
 					<div class="card-title">Crear Mensaje</div>
-					<form action="" v-on:submit.prevent="newTabla()">
+					<form @submit.prevent="newTabla()">
 						  <div class="form-group row">
 						    <label for="name" class="col-sm-2 col-form-label">Asunto</label>
 						    <div class="col-sm-10">
@@ -26,8 +26,8 @@
 	export default {
 		data(){
 			return{
-				name: '',
-				mensaje: ''
+				name: null,
+				mensaje: null
 			}
 		},
         mounted() {
@@ -40,9 +40,11 @@
         			mensaje: this.mensaje
         		})
         		.then((response) => {
-        				const tabla = response.data;
-        				this.$emit('new', tabla);
-				      });
+        			this.name = '',
+        			this.mensaje =  '';
+        			const tabla = response.data;
+        			this.$emit('new', tabla);
+				});
         	}
         }
     }

@@ -1817,8 +1817,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      name: '',
-      mensaje: ''
+      name: null,
+      mensaje: null
     };
   },
   mounted: function mounted() {
@@ -1832,6 +1832,7 @@ __webpack_require__.r(__webpack_exports__);
         name: this.name,
         mensaje: this.mensaje
       }).then(function (response) {
+        _this.name = '', _this.mensaje = '';
         var tabla = response.data;
 
         _this.$emit('new', tabla);
@@ -1932,7 +1933,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1957,11 +1957,6 @@ __webpack_require__.r(__webpack_exports__);
       _this2.personas = res.data;
       _this2.loading = false;
     });
-  },
-  methods: {
-    clickDelete: function clickDelete(index) {
-      this.personas.splice(index, 1);
-    }
   }
 });
 
@@ -2011,7 +2006,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['tabla'],
+  props: ['tabla', 'index'],
   data: function data() {
     return {
       editMode: false
@@ -2035,8 +2030,8 @@ __webpack_require__.r(__webpack_exports__);
     onClickUpdate: function onClickUpdate(index, tabla) {
       var _this2 = this;
 
-      var urlup = "../notas/" + tabla.id;
-      axios.put(urlup, {
+      var url = "../notas/" + tabla.id;
+      axios.put(url, {
         name: tabla.name,
         mensaje: tabla.mensaje
       }).then(function (response) {
@@ -38126,7 +38121,7 @@ var render = function() {
                   var i = arguments.length,
                     argsArray = Array(i)
                   while (i--) argsArray[i] = arguments[i]
-                  return _vm.updateTable.apply(
+                  return _vm.updateTabla.apply(
                     void 0,
                     [index].concat(argsArray)
                   )
@@ -38198,7 +38193,6 @@ var render = function() {
         _c(
           "form",
           {
-            attrs: { action: "" },
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -38467,7 +38461,7 @@ var render = function() {
         ]
       }),
       _vm._v(" "),
-      _vm._l(_vm.personas, function(persona, index) {
+      _vm._l(_vm.personas, function(persona) {
         return _c("div", { staticClass: "col-sm" }, [
           _c(
             "div",
@@ -38501,19 +38495,6 @@ var render = function() {
                   "a",
                   { staticClass: "btn btn-primary", attrs: { href: "#" } },
                   [_vm._v("Ver Más Info+")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn btn-danger",
-                    on: {
-                      click: function($event) {
-                        return _vm.clickDelete(index)
-                      }
-                    }
-                  },
-                  [_vm._v("Delete")]
                 )
               ])
             ]
@@ -38673,7 +38654,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("Deletes")]
+          [_vm._v("Delete")]
         )
       ])
     ])

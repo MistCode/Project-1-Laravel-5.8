@@ -28,16 +28,19 @@ class NotesController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->ajax()){
+        
+        $this->validate($request,[
+            'name' => 'required',
+            'mensaje' => 'required'
+        ]);
 
         $tabla = new Mensaje();
-        $tabla->name = $request->name;
-        $tabla->mensaje = $request->mensaje;
+        $tabla->name = $request->input('name');
+        $tabla->mensaje = $request->input('mensaje');
         $tabla->user_id = auth()->id();
         $tabla->save();
 
-        return response()->json($tabla, 200);
-        }
+        return $tabla;
     }
 
     /**
@@ -49,10 +52,12 @@ class NotesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $this->validate($request,[
             'name' => 'required',
             'mensaje' => 'required'
         ]);
+
         $tabla = Mensaje::find($id);
         $tabla->name = $request->name;
         $tabla->mensaje = $request->mensaje;
