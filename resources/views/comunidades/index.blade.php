@@ -7,8 +7,8 @@
 <div class="container">
 	<div class="col-sn">
 		
-		<table class="table text-center" style="margin-top: 10px;">
-		  <thead class="thead-light">
+		<table class="table table-hover text-center shadow p-3 mb-5" style="margin-top: 10px;">
+		  <thead class="thead-dark">
 		    <tr>
 		      <th scope="col">Imagen</th>
 		      <th scope="col">Nombre</th>

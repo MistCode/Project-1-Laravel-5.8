@@ -33,7 +33,15 @@ Route::resource('sd','ExtraController');
 
 //route mensaje
 
-Route::resource('notas', 'NotesController', ['except' => 'show', 'create', 'edit']);
+Route::resource('notas', 'NotesController');
+
+Route::get('/comunidades/{comunidad}/notas', 'NotesController@index');
+
+Route::post('/comunidades/{comunidad}/notas', 'NotesController@store');
+
+Route::put('/comunidades/{comunidad}/notas/{id}', 'NotesController@update');
+
+Route::delete('/comunidades/{comunidad}/notas/{id}', 'NotesController@destroy');
 
 //route Persona
 

@@ -14,10 +14,15 @@ class ComunidadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $request->user()->authorizeRoles(['user', 'admin']);
         $usuarios = Comunidad::all();
-        return view('comunidades.index', compact('usuarios'));
+        if(count($usuarios) >= 1){
+            return view('comunidades.index', compact('usuarios'));
+        }else{
+            return view('common.nothing-comunidad', compact('usuarios'));
+        }
     }
 
     /**

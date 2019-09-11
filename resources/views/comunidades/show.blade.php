@@ -20,7 +20,9 @@
 		</ul>
 
 		<ul>
-			<todo></todo>
+			<div style="width: 45rem;">
+				<todo></todo>
+			</div>
 		</ul>	
 	</div>
 

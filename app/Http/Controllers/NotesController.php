@@ -3,6 +3,7 @@
 namespace Lavel\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Lavel\Comunidad;
 use Lavel\Mensaje;
 
 class NotesController extends Controller
@@ -12,13 +13,10 @@ class NotesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Comunidad $comunidad, Request $request)
     {
         $tablas = Mensaje::all();
-        if($request->ajax()){
-            return response()->json($tablas, 200);
-        }
-        return view('notas.index');
+            return $tablas;
     }
 
     /**
@@ -27,7 +25,7 @@ class NotesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Comunidad $comunidad, Request $request)
     {
         
         $this->validate($request,[
@@ -39,7 +37,7 @@ class NotesController extends Controller
         $tabla->name = $request->input('name');
         $tabla->mensaje = $request->input('mensaje');
         $tabla->user_id = auth()->id();
-        $tabla->save();
+        $tabla->comunidad()->associate($comunidad)->save();
 
         return $tabla;
     }
@@ -51,7 +49,7 @@ class NotesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Comunidad $comunidad, Request $request, $id)
     {
         
         $this->validate($request,[
@@ -62,7 +60,7 @@ class NotesController extends Controller
         $tabla = Mensaje::find($id);
         $tabla->name = $request->name;
         $tabla->mensaje = $request->mensaje;
-        $tabla->save();
+        $tabla->comunidad()->associate($comunidad)->save();
 
         return $tabla;
     }
@@ -73,9 +71,9 @@ class NotesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comunidad $comunidad, $id)
     {
         $tabla = Mensaje::find($id);
-        $tabla->delete();
+        $tabla->comunidad()->associate($comunidad)->delete();
     }
 }

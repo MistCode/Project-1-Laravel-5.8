@@ -1,5 +1,5 @@
 <template>
-	<div class="card text-center bg-white rounded border border-info" style="width: 40rem; margin-right: 40px; margin-top: 30px;">
+	<div class="card text-center bg-white rounded border border-info" style="width: 45rem; margin-right: 40px; margin-top: 30px;">
 				<div class="card-body">
 					<div class="card-title">Crear Mensaje</div>
 					<form @submit.prevent="newTabla()">
@@ -16,7 +16,7 @@
 						    </div>
 						  </div>
 
-						  <button type="submit" class="btn btn-primary">Guardar</button>
+						  <button type="submit" class="btn btn-primary pull right">Guardar</button>
 					</form>
 				</div>
 			</div>
@@ -35,16 +35,22 @@
         },
         methods:{
         	newTabla: function(){
-        		axios.post('../notas', {
+        		let currentRoute = window.location.pathname
+
+        		axios.post(`http://localhost${currentRoute}/notas`, {
         			name: this.name,
         			mensaje: this.mensaje
         		})
         		.then((response) => {
+        			console.log(response)
         			this.name = '',
         			this.mensaje =  '';
         			const tabla = response.data;
         			this.$emit('new', tabla);
-				});
+				})
+				.catch(function(err){
+			        console.log(err)
+			    });
         	}
         }
     }
