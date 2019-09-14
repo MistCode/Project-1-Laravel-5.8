@@ -19,7 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body background="{{ asset('images/wallhaven-488y3o.png') }}">
+<body background="{{ asset('images/wallhaven-0pej79.jpg') }}">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">

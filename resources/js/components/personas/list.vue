@@ -1,12 +1,14 @@
 <template>
 	<div class="row">
 		<spinner v-show="loading"></spinner>
-		<div class="col-sm" v-for="persona in personas">
+		<div class="col-sm" v-for="(persona, index) in personas">
 			<div class="card text-center border border-info" style="width: 18rem; margin-right: 40px; margin-top: 30px;">	
 				<img style="height: 150px; width: 100px; background-color: #EFEFEF; margin-top: 5px;" v-bind:src="persona.picture" class="card-img-top rounded-circle mx-auto d-block border border-primary" alt="">
 				<div class="card-body">
 					<h5 class="card-title"> {{ persona.name }} </h5>
 					<a href="#" class="btn btn-primary">Ver Más Info+</a>
+					<button class="btn btn-warning">Editar</button>
+					<button class="btn btn-danger" @click.prevent="deletePersona(persona, index)">Eliminar</button>
 				</div>
 			</div>
 		</div>
@@ -36,6 +38,18 @@
 				this.personas = res.data
 				this.loading = false
             })
+        },
+        methods:{
+        	deletePersona: function(persona, index){
+        		let currentRoute = window.location.pathname
+        		var url = `http://localhost${currentRoute}/personas/` + persona.id;
+            axios
+            .delete(url)
+            .then((res) => {
+            	console.log(res)
+				this.personas.splice(index, 1)
+            })
+        	}
         }
 	}
 </script>

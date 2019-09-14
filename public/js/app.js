@@ -2016,6 +2016,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -2040,6 +2042,19 @@ __webpack_require__.r(__webpack_exports__);
       _this2.personas = res.data;
       _this2.loading = false;
     });
+  },
+  methods: {
+    deletePersona: function deletePersona(persona, index) {
+      var _this3 = this;
+
+      var currentRoute = window.location.pathname;
+      var url = "http://localhost".concat(currentRoute, "/personas/") + persona.id;
+      axios["delete"](url).then(function (res) {
+        console.log(res);
+
+        _this3.personas.splice(index, 1);
+      });
+    }
   }
 });
 
@@ -38613,7 +38628,7 @@ var render = function() {
         ]
       }),
       _vm._v(" "),
-      _vm._l(_vm.personas, function(persona) {
+      _vm._l(_vm.personas, function(persona, index) {
         return _c("div", { staticClass: "col-sm" }, [
           _c(
             "div",
@@ -38647,6 +38662,24 @@ var render = function() {
                   "a",
                   { staticClass: "btn btn-primary", attrs: { href: "#" } },
                   [_vm._v("Ver Más Info+")]
+                ),
+                _vm._v(" "),
+                _c("button", { staticClass: "btn btn-warning" }, [
+                  _vm._v("Editar")
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-danger",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.deletePersona(persona, index)
+                      }
+                    }
+                  },
+                  [_vm._v("Eliminar")]
                 )
               ])
             ]

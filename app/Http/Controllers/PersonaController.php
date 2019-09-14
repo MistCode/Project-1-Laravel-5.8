@@ -31,4 +31,10 @@ class PersonaController extends Controller
             ], 200);
         }
     }
+
+    public function destroy(Registro $grupo, $id)
+    {
+        $persona = Persona::find($id);
+        $persona->registro()->associate($grupo)->delete();
+    }
 }
