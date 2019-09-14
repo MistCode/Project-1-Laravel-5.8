@@ -51,6 +51,8 @@ Route::get('/grupos/{grupo}/personas','PersonaController@index');
 
 Route::post('/grupos/{grupo}/personas','PersonaController@store');
 
+Route::put('/grupos/{grupo}/personas/{id}', 'PersonaController@update');
+
 Route::delete('/grupos/{grupo}/personas/{id}', 'PersonaController@destroy');
 
 //auth

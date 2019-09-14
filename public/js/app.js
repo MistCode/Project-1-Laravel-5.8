@@ -2018,12 +2018,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       personas: [],
-      loading: true
+      loading: true,
+      editMode: false
     };
   },
   created: function created() {
@@ -2053,6 +2057,27 @@ __webpack_require__.r(__webpack_exports__);
         console.log(res);
 
         _this3.personas.splice(index, 1);
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    editPersona: function editPersona() {
+      this.editMode = true;
+    },
+    updatePersona: function updatePersona(index, persona) {
+      var _this4 = this;
+
+      var currentRoute = window.location.pathname;
+      var url = "http://localhost".concat(currentRoute, "/personas/") + persona.id;
+      axios.put(url, {
+        name: persona.name,
+        picture: persona.picture
+      }).then(function (res) {
+        console.log(res);
+        _this4.editMode = false;
+        _this4.personas[index] = persona;
+      })["catch"](function (err) {
+        console.log(err);
       });
     }
   }
@@ -38633,30 +38658,75 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "card text-center border border-info",
+              staticClass: "card text-center border border-danger",
               staticStyle: {
                 width: "18rem",
                 "margin-right": "40px",
-                "margin-top": "30px"
+                "margin-top": "30px",
+                "margin-bottom": "20px"
               }
             },
             [
-              _c("img", {
-                staticClass:
-                  "card-img-top rounded-circle mx-auto d-block border border-primary",
-                staticStyle: {
-                  height: "150px",
-                  width: "100px",
-                  "background-color": "#EFEFEF",
-                  "margin-top": "5px"
-                },
-                attrs: { src: persona.picture, alt: "" }
-              }),
+              _vm.editMode
+                ? _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: persona.picture,
+                        expression: "persona.picture"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", placeholder: "Imagen Url" },
+                    domProps: { value: persona.picture },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(persona, "picture", $event.target.value)
+                      }
+                    }
+                  })
+                : _c("img", {
+                    staticClass:
+                      "card-img-top rounded-circle mx-auto d-block border border-danger",
+                    staticStyle: {
+                      height: "150px",
+                      width: "100px",
+                      "background-color": "#EFEFEF",
+                      "margin-top": "5px"
+                    },
+                    attrs: { src: persona.picture, alt: "" }
+                  }),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
-                _c("h5", { staticClass: "card-title" }, [
-                  _vm._v(" " + _vm._s(persona.name) + " ")
-                ]),
+                _vm.editMode
+                  ? _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: persona.name,
+                          expression: "persona.name"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "Nombre" },
+                      domProps: { value: persona.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(persona, "name", $event.target.value)
+                        }
+                      }
+                    })
+                  : _c("h5", { staticClass: "card-title" }, [
+                      _vm._v(" " + _vm._s(persona.name) + " ")
+                    ]),
                 _vm._v(" "),
                 _c(
                   "a",
@@ -38664,9 +38734,33 @@ var render = function() {
                   [_vm._v("Ver Más Info+")]
                 ),
                 _vm._v(" "),
-                _c("button", { staticClass: "btn btn-warning" }, [
-                  _vm._v("Editar")
-                ]),
+                _vm.editMode
+                  ? _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-success",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.updatePersona(index, persona)
+                          }
+                        }
+                      },
+                      [_vm._v("Actualizar")]
+                    )
+                  : _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-warning",
+                        on: {
+                          click: function($event) {
+                            $event.preventDefault()
+                            return _vm.editPersona()
+                          }
+                        }
+                      },
+                      [_vm._v("Editar")]
+                    ),
                 _vm._v(" "),
                 _c(
                   "button",

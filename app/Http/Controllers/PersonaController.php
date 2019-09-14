@@ -32,6 +32,18 @@ class PersonaController extends Controller
         }
     }
 
+    public function update(Registro $grupo, Request $request, $id){
+        if($request->ajax()){
+
+            $persona = Persona::find($id);
+            $persona->name = $request->input('name');
+            $persona->picture = $request->input('picture');
+            $persona->registro()->associate($grupo)->save();
+
+            return response()->json($persona);
+        }
+    }
+
     public function destroy(Registro $grupo, $id)
     {
         $persona = Persona::find($id);
