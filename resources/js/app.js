@@ -24,6 +24,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('lista-de-personas', require('./components/personas/list.vue').default);
 Vue.component('modal-button', require('./components/personas/modal-button.vue').default);
 Vue.component('create-form-person', require('./components/personas/add.vue').default);
+Vue.component('edit-form-person', require('./components/personas/edit.vue').default);
 Vue.component('spinner', require('./components/widgets/Spinner.vue').default);
 
 Vue.component('tabla-mensaje', require('./components/notas/tabla.vue').default);

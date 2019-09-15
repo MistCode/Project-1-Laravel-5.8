@@ -9,7 +9,7 @@
 						<input v-if="editMode" type="text" class="form-control" placeholder="Nombre" v-model="persona.name">
 						<h5 class="card-title" v-else> {{ persona.name }} </h5>
 						<a href="#" class="btn btn-primary">Ver Más Info+</a>
-						<button v-if="editMode" class="btn btn-success" @click.prevent="updatePersona(index, persona)">Actualizar</button>
+						<button v-if="editMode" class="btn btn-success" @click.prevent="updatePersona(persona, index)">Actualizar</button>
 						<button v-else class="btn btn-warning" @click.prevent="editPersona()">Editar</button>
 						<button class="btn btn-danger" @click.prevent="deletePersona(persona, index)">Eliminar</button>
 					</div>
@@ -60,7 +60,7 @@
         	editPersona: function(){
         		this.editMode = true;
         	},
-        	updatePersona: function(index, persona){
+        	updatePersona: function(persona, index){
                 let currentRoute = window.location.pathname
         		var url = `http://localhost${currentRoute}/personas/` + persona.id;
         		axios.put(url, {
@@ -69,8 +69,8 @@
         		})
         		.then((res) => {
             	console.log(res)
-					this.editMode = false
-					this.personas[index] = persona
+					this.editMode = false;
+					this.personas[index, 1] = persona
         		})
                 .catch(function(err){
                     console.log(err)
