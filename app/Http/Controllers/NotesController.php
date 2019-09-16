@@ -39,6 +39,8 @@ class NotesController extends Controller
         $tabla->user_id = auth()->id();
         $tabla->comunidad()->associate($comunidad)->save();
 
+        //traer comunidad_id https://plugins.krajee.com/file-basic-usage-demo
+
         return $tabla;
     }
 
