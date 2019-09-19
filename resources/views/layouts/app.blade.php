@@ -9,7 +9,46 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!--Toastr-->
+    <!--Toastr.Css-->
+    <link href="toastr.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js">
+    <!--Toastr.Js-->
+    <script src="toastr.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"></script>
+
+
+    <!-- los links de referencias y scripts -->
+    <!-- bootstrap 4.x es compatible. También puede usar las versiones bootstrap css 3.3.x --> 
+    <link  rel = " stylesheet "  href = " https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css " >
+    <link  href = " https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/css/fileinput.min.css "  media = " all "  rel = " stylesheet "  type = " text / css " />
+     <!-- si usa la orientación RTL (de derecha a izquierda), cargue el archivo CSS RTL después de fileinput.css descomentando a continuación --> 
+    <!-- link href =" https: //cdnjs.cloudflare .com / ajax / libs / bootstrap-fileinput / 5.0.6 / css / fileinput-rtl.min.css "media =" all "rel =" stylesheet "type =" text / css "/ -->
+    <script  src =" https://code.jquery.com/jquery-3.3.1.min.js "> </script>
+     <!-- piexif.min.js es necesario para orientar automáticamente los archivos de imagen O al restaurar datos exif en imágenes redimensionadas y cuando  desee cambiar el tamaño de las imágenes antes de cargarlas. Esto debe cargarse antes de fileinput.min.js --> 
+    <script  src = " https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/plugins/piexif.min.js "  type = " text / javascript "></script>
+     <!-- sortable.min.Esto debe cargarse antes de fileinput.min.js --> 
+    <script  src = " https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/plugins/sortable.min.js "  type = " text / javascript "></script>
+     <!-- purify.min.js solo es necesario si desea purificar el contenido HTML en su vista previa para 
+        archivos HTML. Esto debe cargarse antes de fileinput.min.js --> 
+    <script  src = " https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/plugins/purify.min.js " text / javascript></script>
+     <!-- popper.min.js a continuación es necesario si usa bootstrap 4.x. También puede usar las 
+       versiones bootstrap js 3.3.x sin popper.min.js. --> 
+    <script  src = " https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js "> </script>
+     <!-- bootstrap.min.js a continuación es necesario si desea ampliar y obtener una vista previa del contenido del archivo en uncuadro de diálogo modal detallado . Se admite bootstrap 4.x. También puede utilizar las versiones de bootstrap js 3.3.x. --> 
+    <script  src = "https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js "  type = " text / javascript "> </script>
+     <!-- el archivo de complemento de entrada de archivo principal --> 
+    <script  src = " https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/fileinput.min.js "></script>
+     <!-- opcionalmente si necesita un tema como fuente tema impresionante que puede incluir como se menciona a continuación --> 
+    <script  src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/themes/fa/theme.js "></script>
+     <!-- opcionalmente, si necesita traducción para su idioma, incluya la configuración regional archivo como se menciona a continuación --> 
+    <script  src = " https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/locales/(lang).js "></script>
+
+    <!--Iconos-->
+    <script src="https://kit.fontawesome.com/47630105e1.js" crossorigin="anonymous"></script>
+
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->

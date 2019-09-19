@@ -27,10 +27,6 @@ Route::post('/comunidades/create','ComunidadController@store');
 
 Route::get('/comunidades/{$slug}', 'ComunidadController@show')->name('comunidades.show');
 
-//route SD
-
-Route::resource('sd','ExtraController');
-
 //route mensaje
 
 Route::resource('notas', 'NotesController');
