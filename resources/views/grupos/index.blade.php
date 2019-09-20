@@ -24,7 +24,7 @@
 
 					    <h5 class="card-title"> {{ $ingresar->name }} </h5>
 					    <p class="card-text">{{ $ingresar->descript }}</p>
-					    <a href="{{ url('/grupos', $ingresar["slug"]) }}" class="btn btn-primary">Ver Más Info+</a>
+					    <a href="{{ url('/grupos', $ingresar["slug"]) }}" class="btn btn-primary">Ver Más Info <i class="fas fa-plus-circle"></i></a>
 
 					</div>
 				</div>

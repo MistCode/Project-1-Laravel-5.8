@@ -33,7 +33,7 @@
 			</div>
 
 					{!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
-					<a href="{{ url('/comunidades/'.$dat->slug) }}" class="btn btn-success">Regresar</a>
+					<a href="{{ url('/comunidades/'.$dat->slug) }}" class="btn btn-success"><i class="fas fa-arrow-left"></i> Regresar</a>
 				</div>
 			</div>
 		{!! Form::close() !!}

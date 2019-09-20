@@ -38728,11 +38728,7 @@ var render = function() {
                       _vm._v(" " + _vm._s(persona.name) + " ")
                     ]),
                 _vm._v(" "),
-                _c(
-                  "a",
-                  { staticClass: "btn btn-primary", attrs: { href: "#" } },
-                  [_vm._v("Ver Más Info+")]
-                ),
+                _vm._m(0, true),
                 _vm._v(" "),
                 _vm.editMode
                   ? _c(
@@ -38746,7 +38742,10 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("Actualizar")]
+                      [
+                        _c("i", { staticClass: "fas fa-check" }),
+                        _vm._v(" Actualizar")
+                      ]
                     )
                   : _c(
                       "button",
@@ -38759,7 +38758,10 @@ var render = function() {
                           }
                         }
                       },
-                      [_vm._v("Editar")]
+                      [
+                        _c("i", { staticClass: "fas fa-edit" }),
+                        _vm._v(" Editar")
+                      ]
                     ),
                 _vm._v(" "),
                 _c(
@@ -38773,7 +38775,10 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("Eliminar")]
+                  [
+                    _c("i", { staticClass: "fas fa-trash" }),
+                    _vm._v(" Eliminar")
+                  ]
                 )
               ])
             ]
@@ -38784,7 +38789,17 @@ var render = function() {
     2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { staticClass: "btn btn-primary", attrs: { href: "#" } }, [
+      _vm._v("Ver Mas "),
+      _c("i", { staticClass: "fas fa-plus-circle" })
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -38806,20 +38821,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "button",
-    {
-      staticClass: "btn btn-primary top-space",
-      attrs: {
-        type: "button",
-        "data-toggle": "modal",
-        "data-target": "#addPersona"
-      }
-    },
-    [_vm._v("Agregar")]
-  )
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-primary top-space",
+        attrs: {
+          type: "button",
+          "data-toggle": "modal",
+          "data-target": "#addPersona"
+        }
+      },
+      [
+        _c("i", { staticClass: "fas fa-user-plus" }, [
+          _vm._v(" Agregar Persona")
+        ])
+      ]
+    )
+  }
+]
 render._withStripped = true
 
 

@@ -20,8 +20,8 @@
 					@include('grupos.form')
 				</div>
 				<div class="text-center">
-					{!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
-					<a href="{{ url('/grupos/'.$mostrar->slug) }}" class="btn btn-success">Regresar</a>
+					{!! Form::button('<i class="fa fa-check"></i> Actualizar', ['type' => 'submit', 'class' => 'btn btn-success']) !!}
+					<a href="{{ url('/grupos/'.$mostrar->slug) }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Regresar</a>
 				</div>
 			</div>
 		</div>

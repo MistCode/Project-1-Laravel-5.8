@@ -12,8 +12,8 @@
 				    <h5 class="card-title"> {{ $dat->name }} </h5>
 				    <p class="card-text">{{ $dat->describir }}</p>
 				    {!! Form::open([ 'route' => ['comunidades.destroy', $dat->id], 'method' => 'DELETE' ]) !!}
-						<a href="{{ url('/comunidades/'.$dat->slug.'/edit')}}" class="btn btn-primary">Editar</a>
-						{!! Form::submit('Eliminar', [ 'class' => 'btn btn-danger']) !!}
+						<a href="{{ url('/comunidades/'.$dat->slug.'/edit')}}" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
+						{!! Form::button('<i class="fa fa-trash"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-danger'] ) !!}
 					{!! Form::close() !!}
 				</div>
 			</div>

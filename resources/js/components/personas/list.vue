@@ -8,10 +8,10 @@
 					<div class="card-body">
 						<input v-if="editMode" type="text" class="form-control" placeholder="Nombre" v-model="persona.name">
 						<h5 class="card-title" v-else> {{ persona.name }} </h5>
-						<a href="#" class="btn btn-primary">Ver Más Info+</a>
-						<button v-if="editMode" class="btn btn-success" @click.prevent="updatePersona(persona, index)">Actualizar</button>
-						<button v-else class="btn btn-warning" @click.prevent="editPersona()">Editar</button>
-						<button class="btn btn-danger" @click.prevent="deletePersona(persona, index)">Eliminar</button>
+						<a href="#" class="btn btn-primary">Ver Mas <i class="fas fa-plus-circle"></i></a>
+						<button v-if="editMode" class="btn btn-success" @click.prevent="updatePersona(persona, index)"><i class="fas fa-check"></i> Actualizar</button>
+						<button v-else class="btn btn-warning" @click.prevent="editPersona()"><i class="fas fa-edit"></i> Editar</button>
+						<button class="btn btn-danger" @click.prevent="deletePersona(persona, index)"><i class="fas fa-trash"></i> Eliminar</button>
 					</div>
 				</div>
 			</div>
