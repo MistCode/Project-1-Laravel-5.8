@@ -15,8 +15,7 @@ class NotesController extends Controller
      */
     public function index(Comunidad $comunidad, Request $request)
     {
-        $tablas = Mensaje::all();
-            return $tablas;
+            return $comunidad->tablas = Mensaje::all();
     }
 
     /**
@@ -36,7 +35,7 @@ class NotesController extends Controller
         $tabla = new Mensaje();
         $tabla->name = $request->input('name');
         $tabla->mensaje = $request->input('mensaje');
-        $tabla->user_id = auth()->id();
+        //$tabla->user_id = auth()->id();
         $tabla->comunidad()->associate($comunidad)->save();
 
         //traer comunidad_id https://plugins.krajee.com/file-basic-usage-demo

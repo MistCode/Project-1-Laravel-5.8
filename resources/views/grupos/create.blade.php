@@ -13,13 +13,12 @@
 
 @include('common.errors')
 	<div class="row" style="margin-top: 2rem;">
-		<div class="text-center">
+		<div class="text-center"></div>
 			{!! Form::open(['route' => 'grupos.store', 'method' => 'POST', 'files' => true]) !!}
 				@include('grupos.form')
 				{!! Form::button('<i class="fa fa-check"></i> Guardar', ['type' => 'submit', 'class' => 'btn btn-success']) !!}
 				<a href="{{ url('/grupos') }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Regresar</a>
 			{!! Form::close() !!}
-		</div>
 	</div>
 </div>
 @endsection

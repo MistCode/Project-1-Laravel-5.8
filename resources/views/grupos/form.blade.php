@@ -9,7 +9,7 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::file('avatar', ['id' => 'avatar', 'class' => 'file', 'data-browse-on-zone-click' => 'true']) !!}
+		<input id="avatar" name="avatar" type="file" class="file" data-browse-on-zone-click="true">
 	</div>
 
 	<div class="form-group">

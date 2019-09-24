@@ -9,14 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!--Toastr-->
-    <!--Toastr.Css-->
-    <link href="toastr.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js">
-    <!--Toastr.Js-->
-    <script src="toastr.js"></script>
-
-
     <!-- los links de referencias y scripts -->
     <!-- bootstrap 4.x es compatible. También puede usar las versiones bootstrap css 3.3.x --> 
     <link  rel = " stylesheet "  href = " https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css " >
@@ -47,7 +39,6 @@
     <script src="https://kit.fontawesome.com/47630105e1.js" crossorigin="anonymous"></script>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -123,7 +114,17 @@
         </nav>
         <main class="container">
                 @yield('content')
+                
+
         </main>
     </div>
+    <script>
+$(document).on('ready', function() {
+    $("#avatar").fileinput({
+        showUpload: false,
+        dropZoneEnabled: false
+    });
+});
+</script>
 </body>
 </html>
