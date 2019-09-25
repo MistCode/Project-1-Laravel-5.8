@@ -33,7 +33,7 @@
      <!-- opcionalmente si necesita un tema como fuente tema impresionante que puede incluir como se menciona a continuación --> 
     <script  src = "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/themes/fa/theme.js "></script>
      <!-- opcionalmente, si necesita traducción para su idioma, incluya la configuración regional archivo como se menciona a continuación --> 
-    <script  src = " https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/locales/(lang).js "></script>
+    <script  src = " https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.0.6/js/locales/es.js "></script>
 
     <!--Iconos-->
     <script src="https://kit.fontawesome.com/47630105e1.js" crossorigin="anonymous"></script>
@@ -120,9 +120,10 @@
     </div>
     <script>
 $(document).on('ready', function() {
-    $("#avatar").fileinput({
+    $("#input-b1").fileinput({
         showUpload: false,
-        dropZoneEnabled: false
+        dropZoneEnabled: false,
+        maxFileCount: 10
     });
 });
 </script>
