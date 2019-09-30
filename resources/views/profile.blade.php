@@ -15,14 +15,35 @@
             <h2 style="margin-top: 10px; margin-left: 10px;">{{ $user->name }}</h2><br>
           </div>
             <div class="col-md-7">  
-              <h2 style="margin-top: 10px; margin-bottom: 20px; margin-left: 10px;">Cambiar Avatar</h2>
-              {{ Form::open(['route' => ['user.profile.update'], 'files' => true, 'method' => 'PATCH']) }}
-            <div class="form-group">
-              {{ Form::file('avatar') }}
+              <h2 style="margin-top: 10px; margin-bottom: 20px; margin-left: 10px;">Editar Perfil</h2>
+
+              <form class="form-group" method="POST" action="{{ url('/profile') }}" enctype="multipart/form-data">
+                @method('PATCH')
+                @csrf
+              
+            <div class="form-group row">
+              <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+              <div class="col-md-6">
+                  <input id="name" type="name" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+              </div>
             </div>
-              {{ Form::submit('Actualizar', ['class' => 'btn btn-primary'] , ['name' => 'submit']) }}
-              <a href="{{ url('/grupos') }}" class="btn btn-success">Regresar</a>
-              {{ Form::close() }}
+
+            <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Dirección de Correo Electrónico') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            </div>
+                        </div>
+
+            <div class="form-group row">
+              <label for="avatar" class="col-md-4 col-form-label text-md-right">Avatar</label>
+              <div class="col-md-6">
+                <input id="avatar" name="avatar" type="file" class="file" value="{{ old('avatar') }}" required autocomplete="avatar" autofocus>
+              </div>
+            </div>
+              <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Actualizar</button>
+              </form>
             </div>
         </div>
       </div>

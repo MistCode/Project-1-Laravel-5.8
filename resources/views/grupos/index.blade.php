@@ -11,9 +11,6 @@
 		<div class=" col-sm text-center">
 			<h1 style="margin-top: 10px;"><span class="border-bottom">Grupos</span></h1>
 		</div>
-		<div class="text-right">
-		<a href="{{ url('/grupos/create') }}" class="btn btn-primary"><i class="fas fa-plus-circle"></i></a>
-		</div>
 	</div>
 
 	<div class="row">

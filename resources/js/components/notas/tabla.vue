@@ -40,7 +40,6 @@
                     console.log(err)
                 });
         	},
-
         	onClickEdit: function(){
         		this.editMode = true;
         	},

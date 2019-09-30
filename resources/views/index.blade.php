@@ -39,11 +39,11 @@
                     @auth
                         <a href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Entrar</a>
                 </li>
                 <li>
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Registrarse</a>
                         @endif
                     @endauth
                   </li>

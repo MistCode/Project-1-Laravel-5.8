@@ -73,7 +73,6 @@
                           <a class="dropdown-item" href="{{ url('/comunidades/create') }}">Añadir</a>
                         </div>
                     </div>
-                    <a class="nav-item nav-link" href="#">Otra Idea<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
                 </div>
                     <!-- Right Side Of Navbar -->
@@ -81,26 +80,28 @@
                                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Entrar') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item dropdown">
          
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><img width="20px" height="20px" class="rounded-circle" src="{{ asset('images/ae/'.Auth::user()->avatar) }}">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre><img width="30px" height="30px" class="rounded-circle" src="{{ asset('images/ae/'.Auth::user()->avatar) }}">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('/profile') }}">Avatar</a>
+                                    <a class="dropdown-item" href="{{ url('/profile') }}">
+                                    <i class="far fa-user-circle"></i> Perfil</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                                     <i class="fas fa-sign-out-alt"></i> 
+                                        {{ __('Salir') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf

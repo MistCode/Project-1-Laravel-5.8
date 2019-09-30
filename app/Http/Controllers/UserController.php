@@ -25,6 +25,8 @@ class UserController extends Controller
  
     $user = Auth::user();
     $user->avatar = $filename;
+    $user->name = $request->input('name');
+    $user->email = $request->input('email');
     $user->save();
  
     return redirect()->route('user.profile');

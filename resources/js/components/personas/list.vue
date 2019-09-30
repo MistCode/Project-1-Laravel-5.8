@@ -1,6 +1,5 @@
 <template>
 	<div class="row">
-		
 		<div class="col-sm">
 			<spinner v-show="loading"></spinner>
 				<contenido-person v-for="(persona, index) in personas"

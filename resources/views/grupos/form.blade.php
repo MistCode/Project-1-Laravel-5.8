@@ -1,11 +1,11 @@
 	<div class="form-group">
-		{!! Form::label('name', 'Nombre:') !!}
-		{!! Form::text('name', null, ['class' => 'form-control', 'placeholder'=>'El Nombre es...']) !!}
+		<label for="">Nombre:</label>
+		<input type="text" name="name" value="{{ $mostrar->name }}" class="form-control">
 	</div>
 
 	<div class="form-group">
-		{!! Form::label('slug', 'Alias:') !!}
-		{!! Form::text('slug', null, ['class' => 'form-control', 'placeholder'=>'El Alias es...']) !!}
+		<label for="">Alias:</label>
+		<input type="text" name="slug" value="{{ $mostrar->slug }}" class="form-control">
 	</div>
 
 	<div class="form-group">
@@ -13,6 +13,6 @@
 	</div>
 
 	<div class="form-group">
-		{!! Form::label('descript', 'Descripcion:') !!}
-		{!! Form::textarea('descript', null, ['class' => 'form-control', 'placeholder'=>'Escribe algo de...']) !!}
+		<label for="">Descripción:</label>
+		<input type="text" name="descript" value="{{ $mostrar->descript }}" class="form-control">
 	</div>

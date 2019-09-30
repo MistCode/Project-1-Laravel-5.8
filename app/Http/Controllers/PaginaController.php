@@ -13,7 +13,7 @@ class PaginaController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['user', 'admin']);
+        //$request->user()->authorizeRoles(['user', 'admin']);
         $usuarios = Registro::all();
         if(count($usuarios) >= 1){
             return view('grupos.index', compact('usuarios'));
@@ -28,7 +28,7 @@ class PaginaController extends Controller
      */
     public function create(Request $request)
     {
-        $request->user()->authorizeRoles(['user', 'admin']);
+        //$request->user()->authorizeRoles(['user', 'admin']);
         return view('grupos.create');
     }
     /**

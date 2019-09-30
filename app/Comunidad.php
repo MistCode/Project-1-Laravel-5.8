@@ -16,7 +16,6 @@ class Comunidad extends Model
 	{
 	    return 'slug';
 	}
-
 	public function mensajes()
 	{
 		return $this->hasMany('Lavel\Mensaje');

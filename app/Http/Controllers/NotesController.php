@@ -1,11 +1,8 @@
 <?php
-
 namespace Lavel\Http\Controllers;
-
 use Illuminate\Http\Request;
 use Lavel\Comunidad;
 use Lavel\Mensaje;
-
 class NotesController extends Controller
 {
     /**
@@ -17,7 +14,6 @@ class NotesController extends Controller
     {
             return $comunidad->tablas = Mensaje::all();
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -31,18 +27,14 @@ class NotesController extends Controller
             'name' => 'required',
             'mensaje' => 'required'
         ]);
-
         $tabla = new Mensaje();
         $tabla->name = $request->input('name');
         $tabla->mensaje = $request->input('mensaje');
         //$tabla->user_id = auth()->id();
         $tabla->comunidad()->associate($comunidad)->save();
-
         //traer comunidad_id https://plugins.krajee.com/file-basic-usage-demo
-
         return $tabla;
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -57,15 +49,12 @@ class NotesController extends Controller
             'name' => 'required',
             'mensaje' => 'required'
         ]);
-
         $tabla = Mensaje::find($id);
         $tabla->name = $request->name;
         $tabla->mensaje = $request->mensaje;
         $tabla->comunidad()->associate($comunidad)->save();
-
         return $tabla;
     }
-
     /**
      * Remove the specified resource from storage.
      *

@@ -17,11 +17,13 @@
 		<h5 class="card-title"> {{ $mostrar->name }} </h5>
 			<p class="card-text">{{ $mostrar->descript }}</p>
 		<div class="row" style="justify-content: center;">
-			{!! Form::open([ 'route' => ['grupos.destroy', $mostrar->id], 'method' => 'DELETE' ]) !!}
+			<form class="form-group" method="POST" action="{{ url('/grupos/'.$mostrar->id) }}" enctype="multipart/form-data">
+			@method('DELETE')
+			@csrf
 				<a href="{{ url('/grupos/'.$mostrar->slug.'/edit') }}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
-				{!! Form::button('<i class="fa fa-trash"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-danger'] ) !!}
+				<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button>
 				<a href="{{ url('/grupos') }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Regresar</a>
-			{!! Form::close() !!}
+			</form>
 		</div>
 	</div>
 		<div class="container">

@@ -11,10 +11,12 @@
 
 				    <h5 class="card-title"> {{ $dat->name }} </h5>
 				    <p class="card-text">{{ $dat->describir }}</p>
-				    {!! Form::open([ 'route' => ['comunidades.destroy', $dat->id], 'method' => 'DELETE' ]) !!}
+					<form class="form-group" method="POST" action="{{ url('/comunidades/'.$dat->id) }}" enctype="multipart/form-data">
+						@method('DELETE')
+						@csrf
 						<a href="{{ url('/comunidades/'.$dat->slug.'/edit')}}" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
 						{!! Form::button('<i class="fa fa-trash"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-danger'] ) !!}
-					{!! Form::close() !!}
+					</form>
 				</div>
 			</div>
 		</ul>

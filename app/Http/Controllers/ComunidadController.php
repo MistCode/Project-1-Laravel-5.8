@@ -16,7 +16,7 @@ class ComunidadController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['user', 'admin']);
+        //$request->user()->authorizeRoles(['user', 'admin']);
         $usuarios = Comunidad::all();
         if(count($usuarios) >= 1){
             return view('comunidades.index', compact('usuarios'));
