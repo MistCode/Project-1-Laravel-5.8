@@ -9,7 +9,9 @@
 	</div>
 
 	<div class="form-group">
-		<input id="avatar" name="avatar" type="file" class="file" data-browse-on-zone-click="true">
+		<div class="file-loading"> 
+		    <input id="input-b1" name="avatar" type="file" class="file" data-browse-on-zone-click="true">
+		</div>
 	</div>
 
 	<div class="form-group">
