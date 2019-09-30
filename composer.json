@@ -9,11 +9,11 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "caffeinated/shinobi": "^5.0",
         "fideloper/proxy": "^4.0",
         "kartik-v/bootstrap-fileinput": "@dev",
         "laravel/framework": "6.0",
         "laravel/tinker": "^1.0"
-
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
