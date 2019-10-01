@@ -15,7 +15,7 @@
 						@method('DELETE')
 						@csrf
 						<a href="{{ url('/comunidades/'.$dat->slug.'/edit')}}" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
-						{!! Form::button('<i class="fa fa-trash"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-danger'] ) !!}
+						<button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Eliminar</button>
 					</form>
 				</div>
 			</div>

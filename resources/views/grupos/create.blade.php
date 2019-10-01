@@ -16,7 +16,7 @@
 		<div class="text-center"></div>
 			<form class="form-group" method="POST" action="{{ url('/grupos/create') }}" enctype="multipart/form-data"> 
 			@csrf
-				@include('grupos.form')
+				@include('grupos.form-create')
 				<button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Guardar</button>
 				<a href="{{ url('/grupos') }}" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Regresar</a>
 			</form>

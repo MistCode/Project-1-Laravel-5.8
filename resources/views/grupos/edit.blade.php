@@ -19,7 +19,7 @@
 			<img style="height: 230px; width: 150px; margin-top: 40px; margin-right: 20px;" src="{{asset('images/'.$mostrar->avatar) }}" class="card-img-top rounded-circle d-block border border-primary" alt="">
 			<div class="data">
 				<div class="container">
-					@include('grupos.form')
+					@include('grupos.form-edit')
 				</div>
 				<div class="text-center">
 					<button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Actualizar</button>
