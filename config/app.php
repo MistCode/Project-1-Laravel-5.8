@@ -178,6 +178,7 @@ return [
          * LaravelCollective Service Providers...
          */
         //Collective\Html\HtmlServiceProvider::class,
+        Caffeinated\Shinobi\ShinobiServiceProvider::class,
 
     ],
 
