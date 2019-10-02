@@ -17,6 +17,8 @@ class CreateMensajesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('mensaje');
+            $table->bigInteger('comunidad_id')->unsigned();
+            $table->foreign('comunidad_id')->references('id')->on('comunidads');
             $table->timestamps();
         });
     }

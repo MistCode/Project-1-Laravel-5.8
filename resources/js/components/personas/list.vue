@@ -1,6 +1,5 @@
 <template>
-	<div class="row">
-		<div class="col-sm">
+	<div class="container">
 			<spinner v-show="loading"></spinner>
 				<contenido-person v-for="(persona, index) in personas"
 				:key="persona.id" 
@@ -8,7 +7,6 @@
 				@updatePersona="updatePersona(index, ...arguments)" 
 				@deletePersona="deletePersona(index)"
 				></contenido-person>
-		</div>
 	</div>
 </template>
 

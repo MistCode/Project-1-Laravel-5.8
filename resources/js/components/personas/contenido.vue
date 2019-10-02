@@ -1,5 +1,7 @@
 <template>
-		<div class="card text-center border border-danger" style="width: 18rem; margin-right: 40px; margin-top: 30px; margin-bottom: 20px;">
+<div class="row">
+    <div class="col-sm">
+		<div class="card text-center border border-danger" style="width: 18rem; margin-top: 30px; margin-bottom: 20px;">
 			<input v-if="editMode" type="text" class="form-control" placeholder="Imagen Url" v-model="persona.picture">	
 			<img v-else style="height: 150px; width: 100px; background-color: #EFEFEF; margin-top: 5px;" v-bind:src="persona.picture" class="card-img-top rounded-circle mx-auto d-block border border-danger" alt="">
 				<div class="card-body">
@@ -11,6 +13,8 @@
 						<button class="btn btn-danger" @click.prevent="deletePersona(persona, index)"><i class="fas fa-trash"></i> Eliminar</button>
 				</div>
 		</div>
+    </div>
+</div>
 </template>
 <script>
 	import EventBus from '../../event-bus'

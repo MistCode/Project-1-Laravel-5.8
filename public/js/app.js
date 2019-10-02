@@ -2015,6 +2015,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['persona', 'index'],
@@ -2073,8 +2077,6 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _event_bus__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../event-bus */ "./resources/js/event-bus.js");
-//
-//
 //
 //
 //
@@ -38677,125 +38679,131 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass: "card text-center border border-danger",
-      staticStyle: {
-        width: "18rem",
-        "margin-right": "40px",
-        "margin-top": "30px",
-        "margin-bottom": "20px"
-      }
-    },
-    [
-      _vm.editMode
-        ? _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.persona.picture,
-                expression: "persona.picture"
-              }
-            ],
-            staticClass: "form-control",
-            attrs: { type: "text", placeholder: "Imagen Url" },
-            domProps: { value: _vm.persona.picture },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.persona, "picture", $event.target.value)
-              }
-            }
-          })
-        : _c("img", {
-            staticClass:
-              "card-img-top rounded-circle mx-auto d-block border border-danger",
-            staticStyle: {
-              height: "150px",
-              width: "100px",
-              "background-color": "#EFEFEF",
-              "margin-top": "5px"
-            },
-            attrs: { src: _vm.persona.picture, alt: "" }
-          }),
-      _vm._v(" "),
-      _c("div", { staticClass: "card-body" }, [
-        _vm.editMode
-          ? _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.persona.name,
-                  expression: "persona.name"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: { type: "text", placeholder: "Nombre" },
-              domProps: { value: _vm.persona.name },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-sm" }, [
+      _c(
+        "div",
+        {
+          staticClass: "card text-center border border-danger",
+          staticStyle: {
+            width: "18rem",
+            "margin-top": "30px",
+            "margin-bottom": "20px"
+          }
+        },
+        [
+          _vm.editMode
+            ? _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.persona.picture,
+                    expression: "persona.picture"
                   }
-                  _vm.$set(_vm.persona, "name", $event.target.value)
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", placeholder: "Imagen Url" },
+                domProps: { value: _vm.persona.picture },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.persona, "picture", $event.target.value)
+                  }
                 }
-              }
-            })
-          : _c("h5", { staticClass: "card-title" }, [
-              _vm._v(" " + _vm._s(_vm.persona.name) + " ")
-            ]),
-        _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm.editMode
-          ? _c(
+              })
+            : _c("img", {
+                staticClass:
+                  "card-img-top rounded-circle mx-auto d-block border border-danger",
+                staticStyle: {
+                  height: "150px",
+                  width: "100px",
+                  "background-color": "#EFEFEF",
+                  "margin-top": "5px"
+                },
+                attrs: { src: _vm.persona.picture, alt: "" }
+              }),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _vm.editMode
+              ? _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.persona.name,
+                      expression: "persona.name"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", placeholder: "Nombre" },
+                  domProps: { value: _vm.persona.name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.persona, "name", $event.target.value)
+                    }
+                  }
+                })
+              : _c("h5", { staticClass: "card-title" }, [
+                  _vm._v(" " + _vm._s(_vm.persona.name) + " ")
+                ]),
+            _vm._v(" "),
+            _vm._m(0),
+            _vm._v(" "),
+            _vm.editMode
+              ? _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-success",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.updatePersona(_vm.persona, _vm.index)
+                      }
+                    }
+                  },
+                  [
+                    _c("i", { staticClass: "fas fa-check" }),
+                    _vm._v(" Actualizar")
+                  ]
+                )
+              : _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-warning",
+                    on: {
+                      click: function($event) {
+                        $event.preventDefault()
+                        return _vm.editPersona()
+                      }
+                    }
+                  },
+                  [_c("i", { staticClass: "fas fa-edit" }), _vm._v(" Editar")]
+                ),
+            _vm._v(" "),
+            _c(
               "button",
               {
-                staticClass: "btn btn-success",
+                staticClass: "btn btn-danger",
                 on: {
                   click: function($event) {
                     $event.preventDefault()
-                    return _vm.updatePersona(_vm.persona, _vm.index)
+                    return _vm.deletePersona(_vm.persona, _vm.index)
                   }
                 }
               },
-              [_c("i", { staticClass: "fas fa-check" }), _vm._v(" Actualizar")]
+              [_c("i", { staticClass: "fas fa-trash" }), _vm._v(" Eliminar")]
             )
-          : _c(
-              "button",
-              {
-                staticClass: "btn btn-warning",
-                on: {
-                  click: function($event) {
-                    $event.preventDefault()
-                    return _vm.editPersona()
-                  }
-                }
-              },
-              [_c("i", { staticClass: "fas fa-edit" }), _vm._v(" Editar")]
-            ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-danger",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                return _vm.deletePersona(_vm.persona, _vm.index)
-              }
-            }
-          },
-          [_c("i", { staticClass: "fas fa-trash" }), _vm._v(" Eliminar")]
-        )
-      ])
-    ]
-  )
+          ])
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -38829,46 +38837,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "col-sm" },
-      [
-        _c("spinner", {
-          directives: [
-            {
-              name: "show",
-              rawName: "v-show",
-              value: _vm.loading,
-              expression: "loading"
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _c("spinner", {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.loading,
+            expression: "loading"
+          }
+        ]
+      }),
+      _vm._v(" "),
+      _vm._l(_vm.personas, function(persona, index) {
+        return _c("contenido-person", {
+          key: persona.id,
+          attrs: { persona: persona },
+          on: {
+            updatePersona: function($event) {
+              var i = arguments.length,
+                argsArray = Array(i)
+              while (i--) argsArray[i] = arguments[i]
+              return _vm.updatePersona.apply(void 0, [index].concat(argsArray))
+            },
+            deletePersona: function($event) {
+              return _vm.deletePersona(index)
             }
-          ]
-        }),
-        _vm._v(" "),
-        _vm._l(_vm.personas, function(persona, index) {
-          return _c("contenido-person", {
-            key: persona.id,
-            attrs: { persona: persona },
-            on: {
-              updatePersona: function($event) {
-                var i = arguments.length,
-                  argsArray = Array(i)
-                while (i--) argsArray[i] = arguments[i]
-                return _vm.updatePersona.apply(
-                  void 0,
-                  [index].concat(argsArray)
-                )
-              },
-              deletePersona: function($event) {
-                return _vm.deletePersona(index)
-              }
-            }
-          })
+          }
         })
-      ],
-      2
-    )
-  ])
+      })
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

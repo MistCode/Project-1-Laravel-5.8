@@ -17,6 +17,8 @@ class CreatePersonasTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('picture');
+            $table->bigInteger('registro_id')->unsigned();
+            $table->foreign('registro_id')->references('id')->on('registros');
             $table->timestamps();
         });
     }
