@@ -28,11 +28,6 @@
                     <li><a href="{{ url('/comunidades') }}"><img src="{{ asset('images/comunidad-imagen.jpg') }}"></a></li>
                   </ul>
                 </li>
-                <li><a href="index-1.html">Otra Idea</a>
-                  <ul>
-                    <li><a href="#"><img src="{{ asset('images/wallhaven-488y3o.png') }}"></a></li>
-                  </ul>
-                </li>
                 <li>
                 @if (Route::has('login'))
                 <li>
